@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lumi Sainomaa\\source\\repos\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj": {}
+    "C:\\Users\\feira\\source\\repos\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lumi Sainomaa\\source\\repos\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj": {
+    "C:\\Users\\feira\\source\\repos\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lumi Sainomaa\\source\\repos\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj",
+        "projectUniqueName": "C:\\Users\\feira\\source\\repos\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj",
         "projectName": "Rahatraiteille",
-        "projectPath": "C:\\Users\\Lumi Sainomaa\\source\\repos\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj",
-        "packagesPath": "C:\\Users\\Lumi Sainomaa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lumi Sainomaa\\source\\repos\\Rahatraiteille\\Rahatraiteille\\obj\\",
+        "projectPath": "C:\\Users\\feira\\source\\repos\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj",
+        "packagesPath": "C:\\Users\\feira\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\feira\\source\\repos\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lumi Sainomaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\feira\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
