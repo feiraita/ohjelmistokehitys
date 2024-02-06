@@ -16,9 +16,29 @@ namespace Rahatraiteille
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<string> kategoriat = [];
         public MainWindow()
         {
             InitializeComponent();
         }
-    }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            kategoriat.Add(textBox.Text);
+            textBlock.Text = string.Join("\n", kategoriat);
+            textBox.Clear();
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (textBox.Text != "")
+            {
+                textBoxPlaceholder.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                textBoxPlaceholder.Visibility = Visibility.Visible;
+            }
+        }
+    } 
 }
