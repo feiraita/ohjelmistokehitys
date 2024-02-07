@@ -5,19 +5,4 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rahatraiteille"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
-    <Grid>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="448,66,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="152" Width="153"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="211,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" Height="30"/>
-        <Label x:Name="textBoxPlaceholder" Content="Label" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="211,128,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
-        <Button Content="Lisää" HorizontalAlignment="Left" Margin="347,128,0,0" VerticalAlignment="Top" Click="Button_Click" IsDefault="True" Height="28" Width="35"/>
-
-        <Popup Margin="10,10,0,13" AllowsTransparency="True" Name="Popup1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Height="100" PlacementTarget="{Binding ElementName=TimerLable}">
-            <Canvas Width="150" Height="100" Background="Beige">
-                <TextBlock Name="text" Width="150" Height="100" TextWrapping="Wrap" Text="Top of the morning to ya" TextAlignment="Center" FontSize="20" FontFamily="Bahnschrift Light"></TextBlock>
-            </Canvas>
-        </Popup>
-        <Label x:Name="TimerLable" Content="0" HorizontalAlignment="Left" Margin="617,217,0,0" VerticalAlignment="Top" Height="77" Width="107" FontSize="20"/>
-
-    </Grid>
-</Window>
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded"/>
