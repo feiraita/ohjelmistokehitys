@@ -12,14 +12,26 @@ using System.Windows.Threading;
 
 namespace Rahatraiteille
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+
+        private void AvaaIkkuna(object sender, RoutedEventArgs e)
+        {
+            Etusivu objEtusivu = new Etusivu();
+            objEtusivu.Show();
+        }
+
+
+
+        private void AvaaIkkuna1(object sender, RoutedEventArgs e)
+        {
+            Sivuvalikko objSivuvalikko = new Sivuvalikko();
+            objSivuvalikko.Show();
         }
 
     }

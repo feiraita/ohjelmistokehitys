@@ -5,4 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rahatraiteille"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded"/>
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="252" FontSize="36"><Run Language="fi-fi" Text="Rahat Raiteille"/></TextBlock>
+        <Button x:Name="Sivuvalikko" Content="Sivuvalikko" HorizontalAlignment="Left" Margin="620,173,0,0" VerticalAlignment="Top" Width="70" Click="AvaaIkkuna1"/>
+        <Button x:Name="Etusivu" Content="Etusivu" HorizontalAlignment="Left" Margin="620,148,0,0" VerticalAlignment="Top" Width="70" Click="AvaaIkkuna"/>
+    </Grid>
+</Window>

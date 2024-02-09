@@ -60,3 +60,28 @@ C:\Users\Lumi Sainomaa\Ohjelmistokehitys\repot\ohjelmistokehitys\Rahatraiteille\
 C:\Users\Lumi Sainomaa\Ohjelmistokehitys\repot\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Rahatraiteille.pdb
 C:\Users\Lumi Sainomaa\Ohjelmistokehitys\repot\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Rahatraiteille.genruntimeconfig.cache
 C:\Users\Lumi Sainomaa\Ohjelmistokehitys\repot\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\ref\Rahatraiteille.dll
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Etusivu.g.cs
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\MainWindow.g.cs
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Sivuvalikko.g.cs
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\App.g.cs
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Rahatraiteille_MarkupCompile.cache
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Rahatraiteille_MarkupCompile.lref
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Rahatraiteille.dll
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\refint\Rahatraiteille.dll
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Rahatraiteille.pdb
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\bin\Debug\net8.0-windows\Rahatraiteille.exe
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\bin\Debug\net8.0-windows\Rahatraiteille.deps.json
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\bin\Debug\net8.0-windows\Rahatraiteille.runtimeconfig.json
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\bin\Debug\net8.0-windows\Rahatraiteille.dll
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\bin\Debug\net8.0-windows\Rahatraiteille.pdb
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Etusivu.baml
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\MainWindow.baml
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Sivuvalikko.baml
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Rahatraiteille.g.resources
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Rahatraiteille.GeneratedMSBuildEditorConfig.editorconfig
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Rahatraiteille.AssemblyInfoInputs.cache
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Rahatraiteille.AssemblyInfo.cs
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Rahatraiteille.csproj.CoreCompileInputs.cache
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Rahatraiteille.sourcelink.json
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\Rahatraiteille.genruntimeconfig.cache
+E:\Kouluhommia\Ohjelmointi\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\ref\Rahatraiteille.dll
