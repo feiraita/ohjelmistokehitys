@@ -1,0 +1,17 @@
+﻿<Window x:Class="IKKUNA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IKKUNA"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <Grid>
+        <TextBox HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Rahat Raiteille" VerticalAlignment="Top" Width="438" Height="58" FontSize="48" FontFamily="Rockwell Extra Bold"/>
+        <Button Content="Sivuvalikko" HorizontalAlignment="Left" Margin="623,132,0,0" VerticalAlignment="Top" Width="104" Height="32" Background="#FFC58989" Click="AvaaIkkuna1"/>
+        <TextBox HorizontalAlignment="Left" Margin="181,108,0,0" TextWrapping="Wrap" Text="Ehkä jotain esittelytekstiä sovelluksesta?:d&#xD;&#xA;Tai jotakin" VerticalAlignment="Top" Width="227" Height="40"/>
+        <Button Content="Etusivu" HorizontalAlignment="Left" Margin="623,177,0,0" VerticalAlignment="Top" Click="AvaaIkkuna" Height="32" Width="104" Background="#FFC58989"/>
+    </Grid>
+    
+</Window>
