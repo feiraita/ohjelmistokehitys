@@ -10,12 +10,30 @@
     <Compile Update="Etusivu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="LisaaKategoria-sivu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="LisaaKirjaus-sivu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Main.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Sivuvalikko.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Etusivu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="LisaaKategoria-sivu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="LisaaKirjaus-sivu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Main.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

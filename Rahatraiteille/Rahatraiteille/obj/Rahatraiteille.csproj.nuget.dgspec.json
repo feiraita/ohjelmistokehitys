@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Kouluhommia\\Ohjelmointi\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj": {}
+    "C:\\Users\\feira\\source\\repos\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj": {}
   },
   "projects": {
-    "E:\\Kouluhommia\\Ohjelmointi\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj": {
+    "C:\\Users\\feira\\source\\repos\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Kouluhommia\\Ohjelmointi\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj",
+        "projectUniqueName": "C:\\Users\\feira\\source\\repos\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj",
         "projectName": "Rahatraiteille",
-        "projectPath": "E:\\Kouluhommia\\Ohjelmointi\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj",
-        "packagesPath": "C:\\Users\\Mikael\\.nuget\\packages\\",
-        "outputPath": "E:\\Kouluhommia\\Ohjelmointi\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\obj\\",
+        "projectPath": "C:\\Users\\feira\\source\\repos\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj",
+        "packagesPath": "C:\\Users\\feira\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\feira\\source\\repos\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Mikael\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\feira\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

@@ -17,6 +17,7 @@ namespace Rahatraiteille
         public MainWindow()
         {
             InitializeComponent();
+           
         }
 
 
@@ -27,12 +28,10 @@ namespace Rahatraiteille
         }
 
 
-
         private void AvaaIkkuna1(object sender, RoutedEventArgs e)
         {
-            Sivuvalikko objSivuvalikko = new Sivuvalikko();
-            objSivuvalikko.Show();
+            LisaaKategoria_sivu objKategoria = new LisaaKategoria_sivu();
+            objKategoria.Show();
         }
-
     }
 }
