@@ -10,18 +10,31 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Rahatraiteille
 {
     /// <summary>
-    /// Interaction logic for Sivuvalikko.xaml
+    /// Interaction logic for Sivuv.xaml
     /// </summary>
-    public partial class Sivuvalikko : Window
+    public partial class Sivuvalikko : Page
     {
         public Sivuvalikko()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            LisaaKategoria_sivu objKategoria = new LisaaKategoria_sivu();
+            objKategoria.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            LisaaKirjaus_sivu objKirjaus = new LisaaKirjaus_sivu();
+            objKirjaus.Show();
         }
     }
 }
