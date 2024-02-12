@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Rahatraiteille")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09d7ca8740f0dc6df64d4fa16781c4ac51326133")]
+>>>>>>> 34a3e6dee8d972d0c8d084ebd88c2199092a4131
 [assembly: System.Reflection.AssemblyProductAttribute("Rahatraiteille")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Rahatraiteille")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
