@@ -1,0 +1,15 @@
+﻿<Window x:Class="Rahatraiteille.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rahatraiteille"
+        mc:Ignorable="d"
+        Title="Window2" Height="450" Width="800">
+    <Grid>
+        <Button Content="Palaa takaisin" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" IsCancel="True"/>
+        <Button x:Name="button1" Content="Valitse kategoria" HorizontalAlignment="Left" Margin="255,48,0,0" VerticalAlignment="Top" Height="50" Width="119" Click="button1_Click"/>
+        <TextBox HorizontalAlignment="Left" Margin="525,73,0,0" TextWrapping="Wrap" Text="Mielikuvitus diagram " VerticalAlignment="Top" Width="194" Height="197"/>
+
+    </Grid>
+</Window>

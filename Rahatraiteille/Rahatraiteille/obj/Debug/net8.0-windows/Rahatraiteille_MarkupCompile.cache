@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\feira\source\repos\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\
+C:\Users\leevi\Source\Repos\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\obj\Debug\net8.0-windows\
 Rahatraiteille
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\feira\source\repos\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\App.xaml
-6521900132
+C:\Users\leevi\Source\Repos\ohjelmistokehitys\Rahatraiteille\Rahatraiteille\App.xaml
+102080495197
 
-91020409921
+13-1147036819
 198-294894759
-Etusivu.xaml;LisaaKategoria-sivu.xaml;LisaaKirjaus-sivu.xaml;Main.xaml;MainWindow.xaml;Sivuvalikko.xaml;
+Etusivu.xaml;LisaaKategoria-sivu.xaml;LisaaKirjaus-sivu.xaml;Main.xaml;MainWindow.xaml;Page1.xaml;Sivuvalikko.xaml;Window1.xaml;Window2.xaml;Window3.xaml;
 
-False
+True
 
