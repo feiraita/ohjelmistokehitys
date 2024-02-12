@@ -8,19 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\feira\\.nuget\\packages\\": {}
+    "C:\\Users\\Lumi Sainomaa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\feira\\source\\repos\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj",
+      "projectUniqueName": "C:\\Users\\Lumi Sainomaa\\Ohjelmistokehitys\\repot\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj",
       "projectName": "Rahatraiteille",
-      "projectPath": "C:\\Users\\feira\\source\\repos\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj",
-      "packagesPath": "C:\\Users\\feira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\feira\\source\\repos\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\obj\\",
+      "projectPath": "C:\\Users\\Lumi Sainomaa\\Ohjelmistokehitys\\repot\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\Rahatraiteille.csproj",
+      "packagesPath": "C:\\Users\\Lumi Sainomaa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lumi Sainomaa\\Ohjelmistokehitys\\repot\\ohjelmistokehitys\\Rahatraiteille\\Rahatraiteille\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\feira\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lumi Sainomaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
