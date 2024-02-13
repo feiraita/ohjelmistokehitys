@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rahatraiteille"
         mc:Ignorable="d"
-        Title="Etusivu" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Etusivu" Height="450" Width="800" Closing="Window_Closing">
+    <DockPanel AllowDrop="True">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Etusivu">
+                <MenuItem Header="Etusivulla näet menojesi yhteenvedon" />
+            </MenuItem>
+            <MenuItem Header="Luo kirjaus">
+                <MenuItem Header="Tällä sivulla voit kirjata menon, ja tarkastella muutamaa edellistä menoa."/>
+            </MenuItem>
+            <MenuItem Header="Kategoriat">
+                <MenuItem Header="Tällä sivulla voit tarkastella kategorioita, luoda ja poistaa niitä."/>
+            </MenuItem>
+            <MenuItem Header="Tarkastele">
+                <MenuItem Header="Tarkastele tarkemmin menojasi käyttäen filttereitä."/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <TextBox AcceptsReturn="True" Background="#FFD3D9BD"/>
+        </Grid>
+    </DockPanel>
 </Window>
