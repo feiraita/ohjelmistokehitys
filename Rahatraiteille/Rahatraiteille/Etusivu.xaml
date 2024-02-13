@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rahatraiteille"
         mc:Ignorable="d"
-        Title="Etusivu" Height="450" Width="800" Closing="Window_Closing">
+        Title="Etusivu" Height="450" Width="800" Closing="Window_Closing" Loaded="Window_Loaded"
+         Background="#FFD3D9BD">
     <DockPanel AllowDrop="True">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Etusivu">
@@ -22,7 +23,13 @@
             </MenuItem>
         </Menu>
         <Grid>
-            <TextBox AcceptsReturn="True" Background="#FFD3D9BD"/>
+            <Popup Margin="10,10,0,13" AllowsTransparency="True" Name="Popup1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Height="100" PlacementTarget="{Binding ElementName=TimerLable}">
+                <Canvas Width="150" Height="100" Background="Beige">
+                    <TextBlock Name="text" Width="150" Height="100" TextWrapping="Wrap" Text="Top of the morning to ya" TextAlignment="Center" FontSize="20" FontFamily="Bahnschrift Light"></TextBlock>
+                </Canvas>
+            </Popup>
+            <Label x:Name="TimerLable" Content="0" HorizontalAlignment="Left" Margin="619,251,0,0" VerticalAlignment="Top" Height="77" Width="107" FontSize="20"/>
+
         </Grid>
     </DockPanel>
 </Window>
