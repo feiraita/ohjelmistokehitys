@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rahatraiteille"
         mc:Ignorable="d"
+        Closing="Window_Closing"
         Title="LisaaKategoria_sivu" Height="450" Width="800">
     <Grid>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="466,0,0,0" TextWrapping="Wrap" Text="Kategoriat:" VerticalAlignment="Center" Height="152" Width="153"/>

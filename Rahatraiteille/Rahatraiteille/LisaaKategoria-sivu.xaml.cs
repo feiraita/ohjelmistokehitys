@@ -25,6 +25,12 @@ namespace Rahatraiteille
         {
             InitializeComponent();
         }
+        private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            await Task.Delay(1);
+            //dt.Stop();
+            Application.Current.Shutdown();
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

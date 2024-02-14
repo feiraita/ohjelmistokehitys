@@ -8,17 +8,22 @@
         Title="Etusivu" Height="450" Width="800" Closing="Window_Closing" Loaded="Window_Loaded"
          Background="#FFD3D9BD">
     <DockPanel AllowDrop="True">
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Etusivu">
+        <Menu DockPanel.Dock="Top" Height="48">
+            <MenuItem>
+                <MenuItem.Icon>
+                    <Image Source="RahatRaiteille.png" Margin="0,0,-33,-23"/>
+                </MenuItem.Icon>
                 <MenuItem Header="Etusivulla näet menojesi yhteenvedon" />
             </MenuItem>
-            <MenuItem Header="Luo kirjaus">
-                <MenuItem Header="Tällä sivulla voit kirjata menon, ja tarkastella muutamaa edellistä menoa."/>
+            <Separator/>
+            <MenuItem Header="Luo kirjaus" FontFamily="Niagara Solid" FontSize="20" Click="MenuItem_Click">
             </MenuItem>
-            <MenuItem Header="Kategoriat">
+            <Separator/>
+            <MenuItem Header="Kategoriat" FontFamily="Niagara Solid" FontSize="20">
                 <MenuItem Header="Tällä sivulla voit tarkastella kategorioita, luoda ja poistaa niitä."/>
             </MenuItem>
-            <MenuItem Header="Tarkastele">
+            <Separator/>
+            <MenuItem Header="Tarkastele" FontFamily="Niagara Solid" FontSize="20">
                 <MenuItem Header="Tarkastele tarkemmin menojasi käyttäen filttereitä."/>
             </MenuItem>
         </Menu>
@@ -28,7 +33,7 @@
                     <TextBlock Name="text" Width="150" Height="100" TextWrapping="Wrap" Text="Top of the morning to ya" TextAlignment="Center" FontSize="20" FontFamily="Bahnschrift Light"></TextBlock>
                 </Canvas>
             </Popup>
-            <Label x:Name="TimerLable" Content="0" HorizontalAlignment="Left" Margin="619,251,0,0" VerticalAlignment="Top" Height="77" Width="107" FontSize="20"/>
+            <Label x:Name="TimerLable" Content="0" HorizontalAlignment="Left" Margin="591,197,0,0" VerticalAlignment="Top" Height="77" Width="107" FontSize="20"/>
 
         </Grid>
     </DockPanel>

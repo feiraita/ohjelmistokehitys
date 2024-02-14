@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,19 +21,20 @@ namespace Rahatraiteille
     /// </summary>
     public partial class Etusivu : Window
     {
+        DispatcherTimer dt = new DispatcherTimer();
         public Etusivu()
         {
             InitializeComponent();
         }
-
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            await Task.Delay(1);
+            dt.Stop();
+            Application.Current.Shutdown();
+            // < MenuItem Header = "Tällä sivulla voit kirjata menon, ja tarkastella muutamaa edellistä menoa." />
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        internal void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            DispatcherTimer dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromSeconds(1);
             dt.Tick += dtTicker;
             dt.Start();
@@ -55,6 +57,14 @@ namespace Rahatraiteille
                 Popup1.IsOpen = false;
                 Popup1.PopupAnimation = System.Windows.Controls.Primitives.PopupAnimation.Fade;
             }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            LisaaKategoria_sivu mainWindow = new LisaaKategoria_sivu();
+            Visibility = Visibility.Hidden;
+            mainWindow.Show();
+            dt.Stop();
         }
     }
 }
