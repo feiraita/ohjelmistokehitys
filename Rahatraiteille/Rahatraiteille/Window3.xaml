@@ -1,0 +1,15 @@
+﻿<Window x:Class="Rahatraiteille.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rahatraiteille"
+        mc:Ignorable="d"
+        Title="Window3" Height="450" Width="800">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Margin="293,108,0,0" TextWrapping="Wrap" Text="€?" VerticalAlignment="Top" Width="79" Height="39"/>
+        <TextBlock x:Name="textblock1" HorizontalAlignment="Left" Margin="271,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="129" Background="#FF4EA7F9" Foreground="Black"><Run Language="fi-fi" Text="Kirjoita Textblokkiin paljonko tienaat?"/></TextBlock>
+        <Button x:Name="button2" Content="Lähetä" HorizontalAlignment="Left" Margin="271,173,0,0" VerticalAlignment="Top" Width="129" Height="36" Click="button2_Click" IsCancel="True"/>
+
+    </Grid>
+</Window>

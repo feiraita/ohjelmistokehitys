@@ -25,6 +25,8 @@ namespace Rahatraiteille
         {
             Etusivu objEtusivu = new Etusivu();
             objEtusivu.Show();
+
+            Window1 Etusivu = new Window1();
         }
 
 
