@@ -15,7 +15,7 @@
                 </MenuItem.Icon>
             </MenuItem>
             <MenuItem Header="Luo kirjaus" Width="110" FontFamily="Niagara Solid" FontSize="20" Click="MenuItem_Click"/>
-            <MenuItem Header="Kategoriat"  Width="110" FontFamily="Niagara Solid" FontSize="20"/>
+            <MenuItem Header="Kategoriat"  Width="110" FontFamily="Niagara Solid" FontSize="20" Click="MenuItem_Click_1"/>
             <MenuItem Header="Tarkastele"  Width="110" FontFamily="Niagara Solid" FontSize="20"/>
         </Menu>
         <Grid>
