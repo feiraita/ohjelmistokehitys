@@ -14,7 +14,7 @@ namespace Rahatraiteille
 
         public static string testi()
         {
-            return "asdsa";
+            return TIEDOSTO_NIMI;
         }
 
         private static string GetJsonPath()
@@ -45,6 +45,8 @@ namespace Rahatraiteille
                 var kategorialista = JsonSerializer.Deserialize<List<Kategoria>>(raakaJson);
 
                 if (kategorialista == null || kategorialista.Count == 0) return new List<Kategoria>();
+
+                return kategorialista;
             }
             catch (Exception ex) { Console.WriteLine(ex); }
 
