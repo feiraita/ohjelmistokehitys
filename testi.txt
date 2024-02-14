@@ -1,7 +1,8 @@
-:D:D:D:D:D:D:D:P:P:P
-testi jeejee
-:D:D:D:D:D:D:D
-testi jeejee
-fsrnfesjfesiopiojfseo
+Värit:
+Tummanvihree: #909376
+Vihree: #B4BFA6
+Vaaleenvihree: #D3D9BD
+Vaaleenruskee: #CBBD9F
+Ruskee: #A28A67
 
 !Rahatraiteille/Rahatraiteille/bin/Debug/net6.0-windows/jsontiedosto
