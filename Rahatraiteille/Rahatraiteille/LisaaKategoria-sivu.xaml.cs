@@ -22,7 +22,7 @@ namespace Rahatraiteille
     /// </summary>
     public partial class LisaaKategoria_sivu : Window
     {
-        List<Kategoria> kategorialista = [];
+        List<Kategoria> kategorialista = new List<Kategoria>();
 
         public LisaaKategoria_sivu()
         {

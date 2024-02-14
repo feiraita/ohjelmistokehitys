@@ -14,7 +14,7 @@ namespace Rahatraiteille
 
         public static string testi()
         {
-            return TIEDOSTO_NIMI;
+            return "asdsa";
         }
 
         private static string GetJsonPath()
