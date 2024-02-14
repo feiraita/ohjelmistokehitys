@@ -1,6 +1,7 @@
 Pvm: 12.2.
 
 Aloitettiin 2. sprintti.
-Mietittiin sovelluksen käyttöliittymää ja piirrettiin se. 
+Mietittiin sovelluksen käyttöliittymää ja piirrettiin se.
+.gitignore ongelman ratkaisua.
 Sovittiin, että Lumi ja Fei aloittaa sovelluksen pohjan teon (nav, tyhjät sivut), 
 Leevi ja Mikael aloittavat vaatimuusmääritelmän teon.
