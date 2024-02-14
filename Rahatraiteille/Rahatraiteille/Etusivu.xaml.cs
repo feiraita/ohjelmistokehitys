@@ -61,7 +61,7 @@ namespace Rahatraiteille
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            LisaaKategoria_sivu mainWindow = new LisaaKategoria_sivu();
+            LisaaKirjaus_sivu mainWindow = new LisaaKirjaus_sivu();
             Visibility = Visibility.Hidden;
             mainWindow.Show();
             dt.Stop();

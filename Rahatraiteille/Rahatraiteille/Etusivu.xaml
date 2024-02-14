@@ -9,23 +9,14 @@
          Background="#FFD3D9BD">
     <DockPanel AllowDrop="True">
         <Menu DockPanel.Dock="Top" Height="48">
-            <MenuItem>
+            <MenuItem Height="48" Width="65">
                 <MenuItem.Icon>
-                    <Image Source="RahatRaiteille.png" Margin="0,0,-33,-23"/>
+                    <Image Source="RahatRaiteille.png" Margin="-15,-19,-65,-32" Stretch="Fill"/>
                 </MenuItem.Icon>
-                <MenuItem Header="Etusivulla näet menojesi yhteenvedon" />
             </MenuItem>
-            <Separator/>
-            <MenuItem Header="Luo kirjaus" FontFamily="Niagara Solid" FontSize="20" Click="MenuItem_Click">
-            </MenuItem>
-            <Separator/>
-            <MenuItem Header="Kategoriat" FontFamily="Niagara Solid" FontSize="20">
-                <MenuItem Header="Tällä sivulla voit tarkastella kategorioita, luoda ja poistaa niitä."/>
-            </MenuItem>
-            <Separator/>
-            <MenuItem Header="Tarkastele" FontFamily="Niagara Solid" FontSize="20">
-                <MenuItem Header="Tarkastele tarkemmin menojasi käyttäen filttereitä."/>
-            </MenuItem>
+            <MenuItem Header="Luo kirjaus" Width="110" FontFamily="Niagara Solid" FontSize="20" Click="MenuItem_Click"/>
+            <MenuItem Header="Kategoriat"  Width="110" FontFamily="Niagara Solid" FontSize="20"/>
+            <MenuItem Header="Tarkastele"  Width="110" FontFamily="Niagara Solid" FontSize="20"/>
         </Menu>
         <Grid>
             <Popup Margin="10,10,0,13" AllowsTransparency="True" Name="Popup1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Height="100" PlacementTarget="{Binding ElementName=TimerLable}">
