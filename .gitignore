@@ -2,3 +2,4 @@ Rahatraiteille/.vs/*
 Rahatraiteille/Rahatraiteille/bin/Debug/net8.0-windows/*
 Rahatraiteille/Rahatraiteille/bin/Release/*
 Rahatraiteille/Rahatraiteille/obj/*
+!Rahatraiteille/Rahatraiteille/bin/Debug/net6.0-windows/kategoriat.json
