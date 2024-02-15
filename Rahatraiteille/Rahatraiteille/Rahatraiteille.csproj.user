@@ -7,7 +7,7 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Etusivu.xaml.cs">
+    <Compile Update="Etusivu-sivu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="LisaaKategoria-sivu.xaml.cs">
@@ -18,7 +18,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Etusivu.xaml">
+    <Page Update="Etusivu-sivu.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LisaaKategoria-sivu.xaml">

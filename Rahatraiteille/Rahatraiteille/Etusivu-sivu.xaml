@@ -1,0 +1,31 @@
+﻿<Window x:Class="Rahatraiteille.Etusivu_sivu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rahatraiteille"
+        mc:Ignorable="d"
+        Title="Etusivu" Height="450" Width="800" Closing="Window_Closing" Loaded="Window_Loaded"
+         Background="#FFD3D9BD">
+    <DockPanel AllowDrop="True">
+        <Menu DockPanel.Dock="Top" Height="48">
+            <MenuItem Height="48" Width="65">
+                <MenuItem.Icon>
+                    <Image Source="RahatRaiteille.png" Margin="-15,-19,-65,-32" Stretch="Fill"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Luo kirjaus" Width="110" FontFamily="Niagara Solid" FontSize="20" Click="MenuItem_Click"/>
+            <MenuItem Header="Kategoriat"  Width="110" FontFamily="Niagara Solid" FontSize="20" Click="MenuItem_Click_1"/>
+            <MenuItem Header="Tarkastele"  Width="110" FontFamily="Niagara Solid" FontSize="20"/>
+        </Menu>
+        <Grid>
+            <Popup Margin="10,10,0,13" AllowsTransparency="True" Name="Popup1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Height="100" PlacementTarget="{Binding ElementName=TimerLable}">
+                <Canvas Width="150" Height="100" Background="Beige">
+                    <TextBlock Name="text" Width="150" Height="100" TextWrapping="Wrap" Text="Top of the morning to ya" TextAlignment="Center" FontSize="20" FontFamily="Bahnschrift Light"></TextBlock>
+                </Canvas>
+            </Popup>
+            <Label x:Name="TimerLable" Content="0" HorizontalAlignment="Left" Margin="591,197,0,0" VerticalAlignment="Top" Height="77" Width="107" FontSize="20"/>
+
+        </Grid>
+    </DockPanel>
+</Window>

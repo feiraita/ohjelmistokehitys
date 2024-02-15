@@ -44,7 +44,7 @@ namespace Rahatraiteille
         {
             string name = string.Empty;
 
-            if (!string.IsNullOrEmpty(textBox.Text)) name = textBox.Text;
+            if (!string.IsNullOrEmpty(nimiTextBox.Text)) name = nimiTextBox.Text;
 
             if (!string.IsNullOrEmpty(name))
             {
@@ -54,7 +54,7 @@ namespace Rahatraiteille
 
             PaivitaLista();
             Tallentaja_kategoria.TallennaKategoriat(kategorialista);
-            textBox.Text = "";
+            nimiTextBox.Text = "";
         }
         public void PaivitaLista()
         {
@@ -67,13 +67,13 @@ namespace Rahatraiteille
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (textBox.Text != "")
+            if (nimiTextBox.Text != "")
             {
-                textBoxPlaceholder.Visibility = Visibility.Hidden;
+                nimiPlaceholder.Visibility = Visibility.Hidden;
             }
             else
             {
-                textBoxPlaceholder.Visibility = Visibility.Visible;
+                nimiPlaceholder.Visibility = Visibility.Visible;
             }
         }
     }
