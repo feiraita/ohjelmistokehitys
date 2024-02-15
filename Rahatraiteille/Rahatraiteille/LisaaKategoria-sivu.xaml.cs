@@ -31,6 +31,7 @@ namespace Rahatraiteille
             kategorialista = Tallentaja_kategoria.LataaKategoriat();
             PaivitaLista();
         }
+
         private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             await Task.Delay(1);

@@ -11,7 +11,7 @@ namespace Rahatraiteille
         public string nimi { get; set; }
         public double euro { get; set; }
 
-        public Kirjaus(string nimi)
+        public Kirjaus(string nimi, double euro)
         {
             this.nimi = nimi;
             this.euro = euro;

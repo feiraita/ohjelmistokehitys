@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace Rahatraiteille
     /// </summary>
     public partial class LisaaKirjaus_sivu : Window
     {
+        List<Kirjaus> kirjauslista = new List<Kirjaus>();
         public LisaaKirjaus_sivu()
         {
             InitializeComponent();
@@ -36,11 +38,18 @@ namespace Rahatraiteille
 
             if (!string.IsNullOrEmpty(name) && cost > 0)
             {
-                
+                var newKirjaus = new Kirjaus(name, cost);
+                kirjauslista.Add(newKirjaus);
             }
 
             nimiTextBox.Text = "";
             euroTextBox.Text = "";
+
+            var stringgi = "";
+            foreach (var kirjaus in kirjauslista)
+                stringgi += $"{kirjaus.nimi} [{kirjaus.euro} €]\n";
+
+            textBlock.Text = stringgi;
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
