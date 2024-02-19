@@ -36,11 +36,11 @@ namespace Rahatraiteille
         internal void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dt.Interval = TimeSpan.FromSeconds(1);
-            dt.Tick += dtTicker;
+            dt.Tick += DtTicker;
             dt.Start();
         }
         private int increment = 0;
-        private async void dtTicker(object sender, EventArgs e)
+        private async void DtTicker(object sender, EventArgs e)
         {
             increment++;
 

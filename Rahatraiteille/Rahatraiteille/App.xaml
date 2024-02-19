@@ -2,8 +2,21 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Rahatraiteille"
-             StartupUri="Etusivu-sivu.xaml">
+             xmlns:viewModel="clr-namespace:Rahatraiteille.MVVM.ViewModel;assembly=Rahatraiteille"
+             xmlns:view="clr-namespace:Rahatraiteille.MVVM.View;assembly=Rahatraiteille">
     <Application.Resources>
-         
+
+        <DataTemplate DataType="{x:Type viewModel:EtusivuViewModel}">
+            <view:Etusivu_sivu/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:LisaaKategoriaViewModel}">
+            <view:LisaaKategoria_sivu/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:LisaaKirjausViewModel}">
+            <view:LisaaKirjaus_sivu/>
+        </DataTemplate>
+        
     </Application.Resources>
 </Application>
