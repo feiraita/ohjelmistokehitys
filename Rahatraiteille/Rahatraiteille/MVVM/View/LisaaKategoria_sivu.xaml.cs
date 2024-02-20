@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rahatraiteille.MVVM.Classes;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -15,7 +16,7 @@ using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 
-namespace Rahatraiteille
+namespace Rahatraiteille.MVVM.View
 {
     /// <summary>
     /// Interaction logic for LisaaKategoria_sivu.xaml
@@ -38,7 +39,7 @@ namespace Rahatraiteille
             //dt.Stop();
             Application.Current.Shutdown();
         }
-        
+
 
         // LÄHETÄ -nappi
         private void Button_Click(object sender, RoutedEventArgs e)

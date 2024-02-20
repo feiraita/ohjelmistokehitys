@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rahatraiteille
+namespace Rahatraiteille.MVVM.Classes
 {
     internal class Kirjaus
     {

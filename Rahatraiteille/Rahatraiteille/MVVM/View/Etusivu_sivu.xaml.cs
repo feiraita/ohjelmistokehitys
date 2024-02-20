@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
-namespace Rahatraiteille
+namespace Rahatraiteille.MVVM.View
 {
     /// <summary>
     /// Interaction logic for Etusivu.xaml

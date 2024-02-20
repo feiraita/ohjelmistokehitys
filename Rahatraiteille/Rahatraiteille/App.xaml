@@ -6,17 +6,5 @@
              xmlns:view="clr-namespace:Rahatraiteille.MVVM.View;assembly=Rahatraiteille">
     <Application.Resources>
 
-        <DataTemplate DataType="{x:Type viewModel:EtusivuViewModel}">
-            <view:Etusivu_sivu/>
-        </DataTemplate>
-
-        <DataTemplate DataType="{x:Type viewModel:LisaaKategoriaViewModel}">
-            <view:LisaaKategoria_sivu/>
-        </DataTemplate>
-
-        <DataTemplate DataType="{x:Type viewModel:LisaaKirjausViewModel}">
-            <view:LisaaKirjaus_sivu/>
-        </DataTemplate>
-        
     </Application.Resources>
 </Application>

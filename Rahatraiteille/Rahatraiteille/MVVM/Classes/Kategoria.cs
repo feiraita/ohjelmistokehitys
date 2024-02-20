@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rahatraiteille
+namespace Rahatraiteille.MVVM.Classes
 {
     internal class Kategoria
     {
-        public string nimi {  get; set; }
+        public string nimi { get; set; }
 
         public Kategoria(string nimi)
         {

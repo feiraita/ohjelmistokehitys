@@ -7,30 +7,30 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="MVVM\View\Etusivu-sivu.xaml.cs">
+    <Compile Update="MVVM\View\Etusivu_sivu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\LisaaKategoria-sivu.xaml.cs">
+    <Compile Update="MVVM\View\LisaaKategoria_sivu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\LisaaKirjaus-sivu.xaml.cs">
+    <Compile Update="MVVM\View\LisaaKirjaus_sivu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MVVM\View\MainWindow.xaml.cs">
+    <Compile Update="MVVM\MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MVVM\View\Etusivu-sivu.xaml">
+    <Page Update="MVVM\View\Etusivu_sivu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\LisaaKategoria-sivu.xaml">
+    <Page Update="MVVM\View\LisaaKategoria_sivu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\LisaaKirjaus-sivu.xaml">
+    <Page Update="MVVM\View\LisaaKirjaus_sivu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MVVM\View\MainWindow.xaml">
+    <Page Update="MVVM\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

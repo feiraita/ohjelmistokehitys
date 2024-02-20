@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Rahatraiteille.MVVM.ViewModel
 {
-    internal class MainViewModel
+    internal class MainViewModel : BasedViewModel
     {
+        public BasedViewModel CurrentViewModel { get; }
+
+        public MainViewModel() 
+        {
+            CurrentViewModel = new EtusivuViewModel();
+        }
     }
 }

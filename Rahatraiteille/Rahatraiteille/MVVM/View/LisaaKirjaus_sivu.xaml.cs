@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rahatraiteille.MVVM.Classes;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Rahatraiteille
+namespace Rahatraiteille.MVVM.View
 {
     /// <summary>
     /// Interaction logic for LisaaKirjaus_sivu.xaml
@@ -25,7 +26,7 @@ namespace Rahatraiteille
         {
             InitializeComponent();
         }
-  
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
