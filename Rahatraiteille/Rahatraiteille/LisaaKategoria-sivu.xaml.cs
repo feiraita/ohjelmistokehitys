@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -44,28 +46,44 @@ namespace Rahatraiteille
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string name = string.Empty;
+            string color = string.Empty;
 
             if (!string.IsNullOrEmpty(nimiTextBox.Text)) name = nimiTextBox.Text;
+            if(!string.IsNullOrEmpty(variTextBox.Text)) color = variTextBox.Text;
 
-            if (!string.IsNullOrEmpty(name))
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(color))
             {
-                var newKategoria = new Kategoria(name);
+                string Name = char.ToUpper(name.First()) + name.Substring(1).ToLower();
+                string Color = char.ToUpper(color.First()) + color.Substring(1).ToLower();
+
+                var newKategoria = new Kategoria(Name, Color);
                 kategorialista.Add(newKategoria);
             }
 
             PaivitaLista();
             Tallentaja_kategoria.TallennaKategoriat(kategorialista);
+            KategorianVari();
             nimiTextBox.Text = "";
+            variTextBox.Text = "";
         }
+
         public void PaivitaLista()
         {
             var stringgi = "";
             foreach (var kategoria in kategorialista)
-                stringgi += $"{kategoria.nimi}\n";
+                stringgi += $"{kategoria.nimi} - {kategoria.vari}\n";
 
             textBlock.Text = stringgi;
         }
 
+        public void KategorianVari()
+        {
+            string before = variTextBox.Text;
+            string after = char.ToUpper(before.First()) + before.Substring(1).ToLower();
+
+            SolidColorBrush myBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(after);
+            rectangle.Fill = myBrush;
+        }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -77,17 +95,27 @@ namespace Rahatraiteille
             {
                 nimiPlaceholder.Visibility = Visibility.Visible;
             }
-        }
 
-        private void variNappi_Click(object sender, RoutedEventArgs e)
-        {
-            var list = new List<string> { "Red", "Blue", "Green" };
-
-            var rnd = new Random();
-            int index = rnd.Next(list.Count);
-            textBlock2.Text = list[index];
-
-
+            if (variTextBox.Text != "")
+            {
+                variPlaceholder.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                variPlaceholder.Visibility = Visibility.Visible;
+            }
         }
     }
 }
+
+/*
+var list = new List<string> { "Red", "Blue", "Green" };
+
+var rnd = new Random();
+int index = rnd.Next(list.Count);
+textBlock2.Text = list[index];
+
+SolidColorBrush myBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(list[index]);
+
+variNappi.Background = myBrush;
+*/

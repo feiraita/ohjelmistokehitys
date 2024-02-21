@@ -9,10 +9,12 @@ namespace Rahatraiteille
     internal class Kategoria
     {
         public string nimi {  get; set; }
+        public string vari { get; set; }
 
-        public Kategoria(string nimi)
+        public Kategoria(string nimi, string vari)
         {
             this.nimi = nimi;
+            this.vari = vari;
         }
     }
 }
