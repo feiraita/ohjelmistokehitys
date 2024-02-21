@@ -38,7 +38,7 @@ namespace Rahatraiteille
             //dt.Stop();
             Application.Current.Shutdown();
         }
-        
+
 
         // LÄHETÄ -nappi
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -66,6 +66,7 @@ namespace Rahatraiteille
             textBlock.Text = stringgi;
         }
 
+
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (nimiTextBox.Text != "")
@@ -76,6 +77,17 @@ namespace Rahatraiteille
             {
                 nimiPlaceholder.Visibility = Visibility.Visible;
             }
+        }
+
+        private void variNappi_Click(object sender, RoutedEventArgs e)
+        {
+            var list = new List<string> { "Red", "Blue", "Green" };
+
+            var rnd = new Random();
+            int index = rnd.Next(list.Count);
+            textBlock2.Text = list[index];
+
+
         }
     }
 }

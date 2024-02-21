@@ -12,6 +12,8 @@
         <TextBox x:Name="nimiTextBox" HorizontalAlignment="Left" Margin="229,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" Height="30"/>
         <Label x:Name="nimiPlaceholder" Content="Label" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="229,0,0,0" VerticalAlignment="Center" Width="120" Height="28"/>
         <Button Content="Lisää" HorizontalAlignment="Left" Margin="365,0,0,0" VerticalAlignment="Center" Click="Button_Click" IsDefault="True" Height="28" Width="35"/>
+        <Button x:Name="variNappi" Content="Button" HorizontalAlignment="Left" Margin="119,0,0,0" VerticalAlignment="Center" Background="#FF9B3939" Click="variNappi_Click"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="98,160,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
 
     </Grid>

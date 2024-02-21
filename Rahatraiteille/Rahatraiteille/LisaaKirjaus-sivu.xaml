@@ -14,7 +14,7 @@
 
         <Button Content="Lisää" HorizontalAlignment="Left" Margin="511,0,0,0" VerticalAlignment="Center" Height="28" Width="41" Click="Button_Click" IsDefault="True"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="610,150,0,0" TextWrapping="Wrap" Text="Kirjaukset:" VerticalAlignment="Top" Height="167" Width="146"/>
-        <ComboBox x:Name="kategoriatDropdown" HorizontalAlignment="Left" Margin="220,0,0,0" VerticalAlignment="Center" Width="124" SelectionChanged="kategoriatDropdown_SelectionChanged" Height="29"/>
+        <ComboBox x:Name="kategoriatDropdown" HorizontalAlignment="Left" Margin="220,0,0,0" VerticalAlignment="Center" Width="124" Height="29"/>
 
     </Grid>
 </Window>
