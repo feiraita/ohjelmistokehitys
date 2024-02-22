@@ -16,13 +16,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using Rahatraiteille.Luokat;
 
-namespace Rahatraiteille
+namespace Rahatraiteille.Sivut
 {
     /// <summary>
     /// Interaction logic for LisaaKategoria_sivu.xaml
     /// </summary>
-    public partial class LisaaKategoria_sivu : Window
+    public partial class LisaaKategoria_sivu : Page
     {
         List<Kategoria> kategorialista = new List<Kategoria>();
 
@@ -32,13 +33,6 @@ namespace Rahatraiteille
             textBlock.Text = Tallentaja_kategoria.testi();
             kategorialista = Tallentaja_kategoria.LataaKategoriat();
             PaivitaLista();
-        }
-
-        private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            await Task.Delay(1);
-            //dt.Stop();
-            Application.Current.Shutdown();
         }
 
 

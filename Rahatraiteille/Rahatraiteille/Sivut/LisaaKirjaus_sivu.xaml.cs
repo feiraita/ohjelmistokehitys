@@ -12,13 +12,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Rahatraiteille.Luokat;
 
-namespace Rahatraiteille
+namespace Rahatraiteille.Sivut
 {
     /// <summary>
     /// Interaction logic for LisaaKirjaus_sivu.xaml
     /// </summary>
-    public partial class LisaaKirjaus_sivu : Window
+    public partial class LisaaKirjaus_sivu : Page
     {
         List<Kirjaus> kirjauslista = new List<Kirjaus>();
         public LisaaKirjaus_sivu()

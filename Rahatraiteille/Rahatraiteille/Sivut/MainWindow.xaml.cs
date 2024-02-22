@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,26 +12,41 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Rahatraiteille.Sivut;
 
 namespace Rahatraiteille
 {
-    /// <summary>
-    /// Interaction logic for Etusivu.xaml
-    /// </summary>
-    public partial class Etusivu_sivu : Window
+    public partial class MainWindow : Window
     {
         DispatcherTimer dt = new DispatcherTimer();
-        public Etusivu_sivu()
+        public MainWindow()
         {
             InitializeComponent();
+            Ikkuna();
+        }
+
+        private void Ikkuna()
+        {
+            if (Tab1.IsEnabled == true)
+            {
+                F1.Content = new Etusivu_sivu();
+            }
+            if (Tab2.IsEnabled == true)
+            {
+                F2.Content = new LisaaKategoria_sivu();
+            }
+            if (Tab3.IsEnabled == true)
+            {
+                F3.Content = new LisaaKirjaus_sivu();
+            }
         }
         private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             await Task.Delay(1);
             dt.Stop();
             Application.Current.Shutdown();
-            // < MenuItem Header = "Tällä sivulla voit kirjata menon, ja tarkastella muutamaa edellistä menoa." />
         }
+
         internal void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dt.Interval = TimeSpan.FromSeconds(1);
@@ -59,20 +73,5 @@ namespace Rahatraiteille
             }
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            LisaaKirjaus_sivu kirjausWindow = new LisaaKirjaus_sivu();
-            Visibility = Visibility.Hidden;
-            kirjausWindow.Show();
-            dt.Stop();
-        }
-
-        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
-            LisaaKategoria_sivu kategoriaWindow = new LisaaKategoria_sivu();
-            Visibility = Visibility.Hidden;
-            kategoriaWindow.Show();
-            dt.Stop();
-        }
     }
 }

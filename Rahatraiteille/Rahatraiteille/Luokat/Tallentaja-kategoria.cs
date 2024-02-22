@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using System.IO;
 
-namespace Rahatraiteille
+namespace Rahatraiteille.Luokat
 {
     internal class Tallentaja_kategoria
     {

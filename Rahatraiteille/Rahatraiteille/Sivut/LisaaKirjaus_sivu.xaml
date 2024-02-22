@@ -1,4 +1,4 @@
-﻿<Window x:Class="Rahatraiteille.LisaaKirjaus_sivu"
+﻿<Page x:Class="Rahatraiteille.Sivut.LisaaKirjaus_sivu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -17,4 +17,4 @@
         <ComboBox x:Name="kategoriatDropdown" HorizontalAlignment="Left" Margin="220,0,0,0" VerticalAlignment="Center" Width="124" Height="29"/>
 
     </Grid>
-</Window>
+</Page>
