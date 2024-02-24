@@ -1,32 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Newtonsoft.Json;
 using Rahatraiteille.Luokat;
 
 namespace Rahatraiteille.Sivut
 {
-    /// <summary>
-    /// Interaction logic for LisaaKirjaus_sivu.xaml
-    /// </summary>
     public partial class LisaaKirjaus_sivu : Page
     {
         List<Kirjaus> kirjauslista = new List<Kirjaus>();
+
         public LisaaKirjaus_sivu()
         {
             InitializeComponent();
+            LoadKategoriatFromJson();
         }
-  
+
+        public class Kategoria
+        {
+            public string nimi { get; set; }
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -53,7 +48,7 @@ namespace Rahatraiteille.Sivut
             textBlock.Text = stringgi;
         }
 
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void textBox_TextChanged(object sender, EventArgs e)
         {
             if (nimiTextBox.Text != "")
             {
@@ -72,6 +67,28 @@ namespace Rahatraiteille.Sivut
             {
                 euroPlaceholder.Visibility = Visibility.Visible;
             }
+        }
+
+        private void LoadKategoriatFromJson()
+        {
+            try
+            {
+                string json = File.ReadAllText("kategoriat.json");
+                List<Kategoria> kategoriat = JsonConvert.DeserializeObject<List<Kategoria>>(json);
+
+                foreach (var kategoria in kategoriat)
+                {
+                    Console.WriteLine(kategoria.nimi);
+                    kategoriatDropdown.Items.Add(kategoria.nimi);
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        private void kategoriatDropdown_SelectionChanged(object sender, EventArgs e)
+        {
         }
     }
 }
