@@ -4,7 +4,7 @@ using System.ComponentModel;
 using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
-using Rahatraiteille.Sivut;
+using Rahatraiteille.Luokat;
 
 namespace Rahatraiteille.Sivut
 {
@@ -13,8 +13,10 @@ namespace Rahatraiteille.Sivut
         private double _lastLecture;
         private double _trend;
 
+
         public Etusivu_sivu()
         {
+
             InitializeComponent();
 
             LastHourSeries = new SeriesCollection
@@ -25,30 +27,38 @@ namespace Rahatraiteille.Sivut
                     Values = new ChartValues<ObservableValue>
                     {
                         new ObservableValue(0),
-                        new ObservableValue(1),
-                        new ObservableValue(1),
-                        new ObservableValue(1),
-                        new ObservableValue(1),
-                        new ObservableValue(1),
-                        new ObservableValue(1),
-                        new ObservableValue(1)
-                    }
+                        new ObservableValue(0),
+                        new ObservableValue(0),
+                        new ObservableValue(0),
+                        new ObservableValue(0),
+                        new ObservableValue(0),
+                        new ObservableValue(0),
+                        new ObservableValue(0),
+                        new ObservableValue(0),
+                        new ObservableValue(0),
+                        new ObservableValue(0),
+                        new ObservableValue(0),
+                        new ObservableValue(0),
+                        new ObservableValue(0)
+        }
                 }
             };
-            _trend = 8;
 
             Task.Run(() =>
             {
-                var r = new Random();
                 while (true)
                 {
-                    Thread.Sleep(500);
-                    _trend += (r.NextDouble() > 0.3 ? 1 : -1)*r.Next(0, 5);
+                    Thread.Sleep(2000);
+                    int count = Tallentaja_kategoria.LataaKategoriat().Count;
+                    _trend = (count);
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         LastHourSeries[0].Values.Add(new ObservableValue(_trend));
                         LastHourSeries[0].Values.RemoveAt(0);
                         SetLecture();
+                        ListaMäärä.Text = count.ToString();
+                        Lista.Text = count.ToString();
+                        Aika2.Text = DateTime.Now.ToString("yyyy - MM - dd");
                     });
                 }
             });
@@ -57,6 +67,7 @@ namespace Rahatraiteille.Sivut
         }
 
         public SeriesCollection LastHourSeries { get; set; }
+
 
         public double LastLecture
         {
