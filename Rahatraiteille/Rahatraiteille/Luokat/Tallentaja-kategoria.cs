@@ -36,6 +36,7 @@ namespace Rahatraiteille.Luokat
             catch (Exception ex) { Console.WriteLine(ex); }
         }
 
+
         public static List<Kategoria> LataaKategoriat()
         {
             try

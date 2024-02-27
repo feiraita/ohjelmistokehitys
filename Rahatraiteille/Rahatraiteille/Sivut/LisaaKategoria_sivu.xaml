@@ -15,5 +15,10 @@
 
         <Button Content="Lisää" HorizontalAlignment="Left" Margin="391,0,0,0" VerticalAlignment="Center" Click="Button_Click" IsDefault="True" Height="28" Width="35"/>
         <Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="53" Margin="266,114,0,0" VerticalAlignment="Top" Width="120" Fill="White"/>
+
+        <TextBox x:Name="poistaTextBox" HorizontalAlignment="Left" Margin="141,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" Height="30"/>
+        <Label x:Name="poistaPlaceholder" Content="Poistettavan nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="141,321,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
+        <Button Content="Poista" HorizontalAlignment="Left" Margin="266,320,0,0" VerticalAlignment="Top" Click="Poista_Click" Height="28" Width="35"/>
+
     </Grid>
 </Page>

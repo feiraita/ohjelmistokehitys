@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -17,6 +19,7 @@ using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 using Rahatraiteille.Luokat;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Rahatraiteille.Sivut
 {
@@ -60,6 +63,46 @@ namespace Rahatraiteille.Sivut
             nimiTextBox.Text = "";
             variTextBox.Text = "";
         }
+        
+        private void Poista_Click(object sender, RoutedEventArgs e)
+        {
+            string name = string.Empty;
+
+            if (!string.IsNullOrEmpty(poistaTextBox.Text)) name = poistaTextBox.Text;
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                string Name = char.ToUpper(name.First()) + name.Substring(1).ToLower();
+                var poistettava = kategorialista.FirstOrDefault(item => item.nimi == Name);
+
+                if (poistettava != null)
+                {
+                    MessageBoxResult result = MessageBox.Show($"Haluatko varmasti poistaa {Name} -kategorian?",
+                    "Kategorian postaminen", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        kategorialista.Remove(poistettava);
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show($"{Name} nimistä kategoriaa ei löytynyt.\nTarkista, että kirjoitit nimen oikein.", 
+                        "Kategoria error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                    
+
+                
+               
+
+            }
+
+            PaivitaLista();
+            Tallentaja_kategoria.TallennaKategoriat(kategorialista);
+            poistaTextBox.Text = "";
+        }
 
         public void PaivitaLista()
         {
@@ -98,10 +141,31 @@ namespace Rahatraiteille.Sivut
             {
                 variPlaceholder.Visibility = Visibility.Visible;
             }
+
+            if (poistaTextBox.Text != "")
+            {
+                poistaPlaceholder.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                poistaPlaceholder.Visibility = Visibility.Visible;
+            }
         }
     }
 }
 
+
+/* try
+                {
+                    string Name = char.ToUpper(name.First()) + name.Substring(1).ToLower();
+
+                    var poistettava = kategorialista.First(item => name == Name);
+                    kategorialista.Remove(poistettava);
+                }
+                catch (Exception ex) { 
+                    textBlock.Text = ex.Message;
+                }
+*/
 /*
 var list = new List<string> { "Red", "Blue", "Green" };
 
