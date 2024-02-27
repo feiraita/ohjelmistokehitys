@@ -91,12 +91,6 @@ namespace Rahatraiteille.Sivut
                     MessageBox.Show($"{Name} nimistä kategoriaa ei löytynyt.\nTarkista, että kirjoitit nimen oikein.", 
                         "Kategoria error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
-                    
-
-                
-               
-
             }
 
             PaivitaLista();
