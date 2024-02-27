@@ -26,15 +26,17 @@ namespace Rahatraiteille.Sivut
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string name = string.Empty;
+            string category = string.Empty;
             double cost;
 
             if (!string.IsNullOrEmpty(nimiTextBox.Text)) name = nimiTextBox.Text;
+            if (!string.IsNullOrEmpty(kategoriatDropdown.Text)) category = kategoriatDropdown.Text;
 
             double.TryParse(euroTextBox.Text, out cost);
 
-            if (!string.IsNullOrEmpty(name) && cost > 0)
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(category) && cost > 0)
             {
-                var newKirjaus = new Kirjaus(name, cost);
+                var newKirjaus = new Kirjaus(name, category, cost);
                 kirjauslista.Add(newKirjaus);
             }
 
@@ -43,7 +45,7 @@ namespace Rahatraiteille.Sivut
 
             var stringgi = "";
             foreach (var kirjaus in kirjauslista)
-                stringgi += $"{kirjaus.nimi} [{kirjaus.euro} €]\n";
+                stringgi += $"{kirjaus.nimi} [{kirjaus.kategoria}][{kirjaus.euro} €]\n";
 
             textBlock.Text = stringgi;
         }
@@ -82,13 +84,8 @@ namespace Rahatraiteille.Sivut
                     kategoriatDropdown.Items.Add(kategoria.nimi);
                 }
             }
-            catch (Exception ex)
-            {
-            }
-        }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
 
-        private void kategoriatDropdown_SelectionChanged(object sender, EventArgs e)
-        {
         }
     }
 }
