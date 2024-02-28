@@ -11,11 +11,13 @@ namespace Rahatraiteille.Sivut
     public partial class LisaaKirjaus_sivu : Page
     {
         List<Kirjaus> kirjauslista = new List<Kirjaus>();
-
+        
         public LisaaKirjaus_sivu()
         {
             InitializeComponent();
             LoadKategoriatFromJson();
+            kirjauslista = Tallentaja_kirjaus.LataaKirjaukset();
+            PaivitaLista();
         }
 
         public class Kategoria
@@ -23,31 +25,47 @@ namespace Rahatraiteille.Sivut
             public string nimi { get; set; }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Lisaa_Click(object sender, RoutedEventArgs e)
         {
             string name = string.Empty;
             string category = string.Empty;
             double cost;
+            string date = string.Empty;
 
             if (!string.IsNullOrEmpty(nimiTextBox.Text)) name = nimiTextBox.Text;
+            if (!string.IsNullOrEmpty(datePicker.Text)) date = datePicker.Text;
             if (!string.IsNullOrEmpty(kategoriatDropdown.Text)) category = kategoriatDropdown.Text;
-
             double.TryParse(euroTextBox.Text, out cost);
 
-            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(category) && cost > 0)
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(category) & !string.IsNullOrEmpty(date) && cost > 0)
             {
-                var newKirjaus = new Kirjaus(name, category, cost);
-                kirjauslista.Add(newKirjaus);
+                string Name = char.ToUpper(name.First()) + name.Substring(1).ToLower();
+                string Category = char.ToUpper(category.First()) + category.Substring(1).ToLower();
+
+                var newKirjaus = new Kirjaus(Name, Category, cost, date);
+                kirjauslista.Add(newKirjaus); 
+            }
+            else
+            {
+                MessageBox.Show("Täytä kentät oikein.", "Kirjaus error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            nimiTextBox.Text = "";
-            euroTextBox.Text = "";
+            Tallentaja_kirjaus.TallennaKirjaukset(kirjauslista);
+            PaivitaLista(); 
+        }
 
+        public void PaivitaLista()
+        {
             var stringgi = "";
-            foreach (var kirjaus in kirjauslista)
-                stringgi += $"{kirjaus.nimi} [{kirjaus.kategoria}][{kirjaus.euro} €]\n";
+            foreach (var kirjaus in kirjauslista.TakeLast(4).Reverse())
+                stringgi += $"{kirjaus.nimi} [{kirjaus.euro} €] - [{kirjaus.kategoria}] {kirjaus.pvm}\n";
 
             textBlock.Text = stringgi;
+
+            nimiTextBox.Text = string.Empty;
+            kategoriatDropdown.Text = string.Empty;
+            euroTextBox.Text = string.Empty;
+            datePicker.Text = string.Empty;
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)

@@ -11,12 +11,14 @@ namespace Rahatraiteille.Luokat
         public string nimi { get; set; }
         public string kategoria { get; set; }
         public double euro { get; set; }
+        public string pvm { get; set; }
 
-        public Kirjaus(string nimi, string kategoria, double euro)
+        public Kirjaus(string nimi, string kategoria, double euro, string pvm)
         {
             this.nimi = nimi;
             this.kategoria = kategoria;
             this.euro = euro;
+            this.pvm = pvm;
         }
     }
 }
