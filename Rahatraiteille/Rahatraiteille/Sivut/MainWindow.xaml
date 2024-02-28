@@ -12,15 +12,13 @@
             <TabItem x:Name="Tab1" Header="Etusivu" Margin="-2,-1,-60,0">
                 <Frame x:Name="F1" Margin="0,0,-1,0" Height="407"></Frame>
             </TabItem>
-            <TabItem x:Name="Tab2" Header="Lisää Kategoria" Margin="57,-1,-118,-1">
+            <TabItem x:Name="Tab2" Header="Lisää Kirjaus" Margin="57,-1,-118,-1">
                 <Frame x:Name="F2" Margin="0,0,-1,0" Height="407"></Frame>
             </TabItem>
-            <TabItem x:Name="Tab3" Header="Lisää Kirjaus" Margin="115,-1,-177,0">
+            <TabItem x:Name="Tab3" Header="Lisää Kategoria" Margin="115,-1,-177,0">
                 <Frame x:Name="F3" Margin="0,0,-1,0" Height="407"></Frame>
             </TabItem>
         </TabControl>
-        
-        
         
 
         <Popup Margin="10,10,0,13" AllowsTransparency="True" Name="Popup1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" Height="100" PlacementTarget="{Binding ElementName=TimerLable}">
@@ -30,8 +28,7 @@
             </Canvas>
             </Border>
         </Popup>
-        <Label x:Name="TimerLable" Content="0" HorizontalAlignment="Left" Margin="591,197,0,0" VerticalAlignment="Top" Height="77" Width="107" FontSize="20"/>
-        
-        
+        <Label x:Name="TimerLable" Content="0" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Height="77" Width="107" FontSize="20"/>
+       
     </Grid>
 </Window>

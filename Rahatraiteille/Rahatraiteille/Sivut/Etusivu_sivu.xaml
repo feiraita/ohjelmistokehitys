@@ -63,7 +63,7 @@
             <Border x:Name="Border2" Grid.Row="0" Grid.RowSpan="4" CornerRadius="5" Background="White" Grid.ColumnSpan="3" />
             <Border Grid.Row="0" Grid.RowSpan="3" Background="#909277" Grid.ColumnSpan="3" ></Border>
             <TextBlock Grid.Row="0" TextAlignment="Center" Padding="10, 10, 0, 5" Foreground="White" FontSize="18" Grid.ColumnSpan="3" Margin="0,0,0,36" Grid.RowSpan="2">
-                    Raha
+                    Kulutus
             </TextBlock>
             <TextBlock TextAlignment="Center" Foreground="#59FFFFFF" Padding="0,0,0,20" Grid.ColumnSpan="3" Margin="0,37,0,89" Grid.RowSpan="3">Time</TextBlock>
             <Button Grid.Row="2" Width="40" Height="40" VerticalAlignment="Top" 
@@ -93,7 +93,7 @@
             <StackPanel Grid.Row="3" VerticalAlignment="Center" Margin="25,0,25,0" Grid.ColumnSpan="3">
                 <TextBlock Opacity=".4" FontSize="13">Yhteenveto <LineBreak />Rahan käyttö</TextBlock>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Foreground="#303030" FontSize="40" Text="JsonTähä" />
+                    <TextBlock Foreground="#303030" FontSize="40" x:Name="Summa" />
                     <TextBlock Foreground="#303030" FontSize="18" VerticalAlignment="Bottom" Margin="8, 6">€</TextBlock>
                 </StackPanel>
             </StackPanel>
@@ -128,7 +128,7 @@
             <Border x:Name="Border1" Grid.Row="0" Grid.RowSpan="4" CornerRadius="5" Background="White" />
             <Border Grid.Row="0" Grid.RowSpan="3" Background="#A38B67" ></Border>
             <TextBlock Grid.Row="0" TextAlignment="Center" Padding="10, 10, 0, 5" Foreground="White" FontSize="18">
-                    Ny näkyy listoje määrä
+                    Kategoriat
             </TextBlock>
             <TextBlock x:Name="Aika2" Grid.Row="1" TextAlignment="Center" Foreground="#59FFFFFF" Padding="0,0,0,20" ></TextBlock>
             <lvc:CartesianChart Grid.Row="2" Margin="-4,0,0,88" Series="{Binding LastHourSeries}" Hoverable="False" DataTooltip="{x:Null}" Grid.RowSpan="2">

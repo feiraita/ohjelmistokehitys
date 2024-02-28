@@ -33,11 +33,11 @@ namespace Rahatraiteille
             }
             if (Tab2.IsEnabled == true)
             {
-                F2.Content = new LisaaKategoria_sivu();
+                F2.Content = new LisaaKirjaus_sivu();
             }
             if (Tab3.IsEnabled == true)
             {
-                F3.Content = new LisaaKirjaus_sivu();
+                F3.Content = new LisaaKategoria_sivu();
             }
         }
         private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
