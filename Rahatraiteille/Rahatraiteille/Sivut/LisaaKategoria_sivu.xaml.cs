@@ -33,14 +33,11 @@ namespace Rahatraiteille.Sivut
         public LisaaKategoria_sivu()
         {
             InitializeComponent();
-            textBlock.Text = Tallentaja_kategoria.testi();
             kategorialista = Tallentaja_kategoria.LataaKategoriat();
             PaivitaLista();
         }
 
-
-        // LÄHETÄ -nappi
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Lisaa_Click(object sender, RoutedEventArgs e)
         {
             string name = string.Empty;
             string color = string.Empty;
@@ -57,11 +54,9 @@ namespace Rahatraiteille.Sivut
                 kategorialista.Add(newKategoria);
             }
 
-            PaivitaLista();
             Tallentaja_kategoria.TallennaKategoriat(kategorialista);
+            PaivitaLista();
             KategorianVari();
-            nimiTextBox.Text = "";
-            variTextBox.Text = "";
         }
         
         private void Poista_Click(object sender, RoutedEventArgs e)
@@ -105,6 +100,9 @@ namespace Rahatraiteille.Sivut
                 stringgi += $"{kategoria.nimi} - {kategoria.vari}\n";
 
             textBlock.Text = stringgi;
+
+            nimiTextBox.Text = string.Empty;
+            variTextBox.Text = string.Empty;
         }
 
         public void KategorianVari()
