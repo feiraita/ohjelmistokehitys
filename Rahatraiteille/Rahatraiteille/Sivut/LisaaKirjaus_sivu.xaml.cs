@@ -11,7 +11,7 @@ namespace Rahatraiteille.Sivut
     public partial class LisaaKirjaus_sivu : Page
     {
         List<Kirjaus> kirjauslista = new List<Kirjaus>();
-        
+
         public LisaaKirjaus_sivu()
         {
             InitializeComponent();
@@ -20,9 +20,34 @@ namespace Rahatraiteille.Sivut
             PaivitaLista();
         }
 
-        public class Kategoria
+        private void LoadKategoriatFromJson()
         {
-            public string nimi { get; set; }
+            try
+            {
+                string json = File.ReadAllText("kategoriat.json");
+                List<Kategoria> kategoriat = JsonConvert.DeserializeObject<List<Kategoria>>(json);
+
+                foreach (var kategoria in kategoriat)
+                {
+                    Console.WriteLine(kategoria.nimi);
+                    kategoriatDropdown.Items.Add(kategoria.nimi);
+                }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+        }
+
+        public void PaivitaLista()
+        {
+            var stringgi = "";
+            foreach (var kirjaus in kirjauslista.TakeLast(4).Reverse())
+                stringgi += $"{kirjaus.nimi} [{kirjaus.euro} €] - [{kirjaus.kategoria}] {kirjaus.pvm}\n";
+
+            textBlock.Text = stringgi;
+
+            nimiTextBox.Text = string.Empty;
+            kategoriatDropdown.Text = string.Empty;
+            euroTextBox.Text = string.Empty;
+            datePicker.Text = string.Empty;
         }
 
         private void Lisaa_Click(object sender, RoutedEventArgs e)
@@ -43,67 +68,61 @@ namespace Rahatraiteille.Sivut
                 string Category = char.ToUpper(category.First()) + category.Substring(1).ToLower();
 
                 var newKirjaus = new Kirjaus(Name, Category, cost, date);
-                kirjauslista.Add(newKirjaus); 
+                kirjauslista.Add(newKirjaus);
             }
+
             else
             {
-                MessageBox.Show("Täytä kentät oikein.", "Kirjaus error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Täytä kentät oikein.", 
+                    "Kirjaus error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             Tallentaja_kirjaus.TallennaKirjaukset(kirjauslista);
-            PaivitaLista(); 
+            PaivitaLista();
         }
 
-        public void PaivitaLista()
+        private void Poista_Click(object sender, RoutedEventArgs e)
         {
-            var stringgi = "";
-            foreach (var kirjaus in kirjauslista.TakeLast(4).Reverse())
-                stringgi += $"{kirjaus.nimi} [{kirjaus.euro} €] - [{kirjaus.kategoria}] {kirjaus.pvm}\n";
+            string name = string.Empty;
+            string date = string.Empty;
 
-            textBlock.Text = stringgi;
+            if (!string.IsNullOrEmpty(poistaTextBox.Text)) name = poistaTextBox.Text;
+            if (!string.IsNullOrEmpty(poistaDatePicker.Text)) date = poistaDatePicker.Text;
 
-            nimiTextBox.Text = string.Empty;
-            kategoriatDropdown.Text = string.Empty;
-            euroTextBox.Text = string.Empty;
-            datePicker.Text = string.Empty;
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(date))
+            {
+                string Name = char.ToUpper(name.First()) + name.Substring(1).ToLower();
+                var poistettava = kirjauslista.Find(item => (item.nimi == Name) && (item.pvm == date));
+
+                if (poistettava != null)
+                {
+                    MessageBoxResult result = MessageBox.Show($"Haluatko varmasti poistaa {date} {Name} -kirjauksen?",
+                    "Kirjauksen postaminen", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                    if (result == MessageBoxResult.Yes) kirjauslista.Remove(poistettava);
+                }
+
+                else
+                {
+                    MessageBox.Show($"{Name} nimistä kirjausta ei löytynyt.\nTarkista, että kirjoitit nimen oikein.",
+                        "Kirjauksen poistaminen error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                PaivitaLista();
+                Tallentaja_kirjaus.TallennaKirjaukset(kirjauslista);
+                poistaTextBox.Text = "";
+            }
         }
 
         private void textBox_TextChanged(object sender, EventArgs e)
         {
-            if (nimiTextBox.Text != "")
-            {
-                nimiPlaceholder.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                nimiPlaceholder.Visibility = Visibility.Visible;
-            }
+            if (nimiTextBox.Text != "") nimiPlaceholder.Visibility = Visibility.Hidden;
+            else nimiPlaceholder.Visibility = Visibility.Visible;
 
-            if (euroTextBox.Text != "")
-            {
-                euroPlaceholder.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                euroPlaceholder.Visibility = Visibility.Visible;
-            }
-        }
+            if (euroTextBox.Text != "") euroPlaceholder.Visibility = Visibility.Hidden;
+            else euroPlaceholder.Visibility = Visibility.Visible;
 
-        private void LoadKategoriatFromJson()
-        {
-            try
-            {
-                string json = File.ReadAllText("kategoriat.json");
-                List<Kategoria> kategoriat = JsonConvert.DeserializeObject<List<Kategoria>>(json);
-
-                foreach (var kategoria in kategoriat)
-                {
-                    Console.WriteLine(kategoria.nimi);
-                    kategoriatDropdown.Items.Add(kategoria.nimi);
-                }
-            }
-            catch (Exception ex) { Console.WriteLine(ex.Message); }
-
+            if (poistaTextBox.Text != "") poistaPlaceholder.Visibility = Visibility.Hidden;
+            else poistaPlaceholder.Visibility = Visibility.Visible;
         }
     }
 }

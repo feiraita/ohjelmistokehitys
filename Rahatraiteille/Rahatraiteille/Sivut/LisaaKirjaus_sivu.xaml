@@ -11,12 +11,17 @@
         <Label x:Name="nimiPlaceholder" Content="Nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="85,132,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
         <TextBox x:Name="euroTextBox" HorizontalAlignment="Left" Margin="244,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" Height="30"/>
         <Label x:Name="euroPlaceholder" Content="€" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="244,132,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
-
-        <Button Content="Luo kirjaus" HorizontalAlignment="Left" Margin="400,132,0,0" VerticalAlignment="Top" Height="28" Width="81" Click="Lisaa_Click" IsDefault="True"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="610,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="167" Width="146" Background="White"/>
         <ComboBox x:Name="kategoriatDropdown" HorizontalAlignment="Left" Margin="85,177,0,0" VerticalAlignment="Top" Width="120" Height="29" Text="Valitse kategoria" />
         <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Margin="244,177,0,0" VerticalAlignment="Top" Height="29" Width="120"/>
+        <Button Content="Luo kirjaus" HorizontalAlignment="Left" Margin="400,132,0,0" VerticalAlignment="Top" Height="28" Width="81" Click="Lisaa_Click" IsDefault="True"/>
+
         <Label Content="4 viimeksi luotua kirjausta:" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="610,117,0,0" VerticalAlignment="Top" Width="163" Height="28"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="610,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="167" Width="146" Background="White"/>
+
+        <TextBox x:Name="poistaTextBox" HorizontalAlignment="Left" Margin="85,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" Height="30"/>
+        <Label x:Name="poistaPlaceholder" Content="Poistettavan nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="85,335,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
+        <DatePicker x:Name="poistaDatePicker" HorizontalAlignment="Left" Margin="231,333,0,0" VerticalAlignment="Top" Height="29" Width="120"/>
+        <Button Content="Poista" HorizontalAlignment="Left" Margin="409,335,0,0" VerticalAlignment="Top" Height="27" Width="72" Click="Poista_Click"/>
 
     </Grid>
 

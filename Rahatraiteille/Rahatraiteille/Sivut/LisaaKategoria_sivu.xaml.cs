@@ -37,13 +37,25 @@ namespace Rahatraiteille.Sivut
             PaivitaLista();
         }
 
+        public void PaivitaLista()
+        {
+            var stringgi = "";
+            foreach (var kategoria in kategorialista)
+                stringgi += $"{kategoria.nimi} - {kategoria.vari}\n";
+
+            textBlock.Text = stringgi;
+
+            nimiTextBox.Text = string.Empty;
+            variTextBox.Text = string.Empty;
+        }
+
         private void Lisaa_Click(object sender, RoutedEventArgs e)
         {
             string name = string.Empty;
             string color = string.Empty;
 
             if (!string.IsNullOrEmpty(nimiTextBox.Text)) name = nimiTextBox.Text;
-            if(!string.IsNullOrEmpty(variTextBox.Text)) color = variTextBox.Text;
+            if (!string.IsNullOrEmpty(variTextBox.Text)) color = variTextBox.Text;
 
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(color))
             {
@@ -54,6 +66,12 @@ namespace Rahatraiteille.Sivut
                 kategorialista.Add(newKategoria);
             }
 
+            else
+            {
+                MessageBox.Show("Täytä kentät oikein.", 
+                    "Kirjaus error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+           
             Tallentaja_kategoria.TallennaKategoriat(kategorialista);
             PaivitaLista();
             KategorianVari();
@@ -75,10 +93,7 @@ namespace Rahatraiteille.Sivut
                     MessageBoxResult result = MessageBox.Show($"Haluatko varmasti poistaa {Name} -kategorian?",
                     "Kategorian postaminen", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        kategorialista.Remove(poistettava);
-                    }
+                    if (result == MessageBoxResult.Yes) kategorialista.Remove(poistettava);
                 }
 
                 else
@@ -93,18 +108,6 @@ namespace Rahatraiteille.Sivut
             poistaTextBox.Text = "";
         }
 
-        public void PaivitaLista()
-        {
-            var stringgi = "";
-            foreach (var kategoria in kategorialista)
-                stringgi += $"{kategoria.nimi} - {kategoria.vari}\n";
-
-            textBlock.Text = stringgi;
-
-            nimiTextBox.Text = string.Empty;
-            variTextBox.Text = string.Empty;
-        }
-
         public void KategorianVari()
         {
             string before = variTextBox.Text;
@@ -116,32 +119,14 @@ namespace Rahatraiteille.Sivut
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (nimiTextBox.Text != "")
-            {
-                nimiPlaceholder.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                nimiPlaceholder.Visibility = Visibility.Visible;
-            }
+            if (nimiTextBox.Text != "") nimiPlaceholder.Visibility = Visibility.Hidden;
+            else nimiPlaceholder.Visibility = Visibility.Visible;
 
-            if (variTextBox.Text != "")
-            {
-                variPlaceholder.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                variPlaceholder.Visibility = Visibility.Visible;
-            }
+            if (variTextBox.Text != "") variPlaceholder.Visibility = Visibility.Hidden;
+            else variPlaceholder.Visibility = Visibility.Visible;
 
-            if (poistaTextBox.Text != "")
-            {
-                poistaPlaceholder.Visibility = Visibility.Hidden;
-            }
-            else
-            {
-                poistaPlaceholder.Visibility = Visibility.Visible;
-            }
+            if (poistaTextBox.Text != "") poistaPlaceholder.Visibility = Visibility.Hidden;
+            else poistaPlaceholder.Visibility = Visibility.Visible;
         }
     }
 }
