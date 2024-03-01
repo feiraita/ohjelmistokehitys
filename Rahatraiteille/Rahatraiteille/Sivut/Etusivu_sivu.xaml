@@ -3,18 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="800"
              Background="#D2D8BD">
 
     <Grid Height="500" Width="650" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="148*"/>
+            <RowDefinition Height="307*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Grid Margin="18,56,12,190" MaxHeight="350">
+
+
+
+        <Grid Margin="-35,33,65,168" MaxHeight="350" Grid.Row="1" Grid.RowSpan="2">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" Opacity=".2" ShadowDepth="1"/>
             </Grid.Effect>
@@ -26,23 +35,24 @@
                     <Setter Property="StrokeThickness" Value="0"></Setter>
                     <Setter Property="Stroke" Value="White"></Setter>
                     <Setter Property="Fill" Value="White"></Setter>
-                    <Setter Property="MaxColumnWidth" Value="5"></Setter>
+                    <Setter Property="MaxColumnWidth" Value="10"></Setter>
                 </Style>
                 <Style TargetType="lvc:Axis">
-                    <Setter Property="FontSize" Value="12"></Setter>
+                    <Setter Property="FontSize" Value="17"></Setter>
                     <Setter Property="Foreground" Value="#64FFFFFF"></Setter>
                     <Style.Triggers>
-                        <Trigger Property="AxisOrientation" Value="Y">
-                            <Setter Property="IsMerged" Value="True"></Setter>
+                        <Trigger Property="AxisOrientation" Value="y">
+                            <Setter Property="IsMerged" Value="False"></Setter>
                             <Setter Property="MaxValue" Value="10"></Setter>
+                            <Setter Property="MinValue" Value="0"></Setter>
                         </Trigger>
                     </Style.Triggers>
                 </Style>
                 <Style TargetType="lvc:Separator">
-                    <Setter Property="StrokeThickness" Value="1"></Setter>
+                    <Setter Property="StrokeThickness" Value="3"></Setter>
                     <Setter Property="Stroke" Value="#4BFFFFFF"></Setter>
                     <Style.Triggers>
-                        <Trigger Property="AxisOrientation" Value="X">
+                        <Trigger Property="AxisOrientation" Value="x">
                             <Setter Property="IsEnabled" Value="False"></Setter>
                             <Setter Property="Step" Value="1"></Setter>
                         </Trigger>
@@ -60,14 +70,14 @@
                 <RowDefinition Height=".50*"></RowDefinition>
                 <RowDefinition Height=".5*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Border x:Name="Border2" Grid.Row="0" Grid.RowSpan="4" CornerRadius="5" Background="White" Grid.ColumnSpan="3" />
-            <Border Grid.Row="0" Grid.RowSpan="3" Background="#909277" Grid.ColumnSpan="3" ></Border>
-            <TextBlock Grid.Row="0" TextAlignment="Center" Padding="10, 10, 0, 5" Foreground="White" FontSize="18" Grid.ColumnSpan="3" Margin="0,0,0,36" Grid.RowSpan="2">
+            <Border x:Name="Border2" Grid.Row="0" Grid.RowSpan="4" CornerRadius="5" Background="White" Grid.ColumnSpan="3" Margin="0,0,-115,0" />
+            <Border Grid.Row="0" Grid.RowSpan="3" Background="#909277" Grid.ColumnSpan="3" Margin="0,0,-115,0" ></Border>
+            <TextBlock Grid.Row="0" TextAlignment="Center" Padding="10, 10, 0, 5" Foreground="White" FontSize="18" Grid.ColumnSpan="3" Margin="0,0,-115,36" Grid.RowSpan="2">
                     Kulutus
             </TextBlock>
-            <TextBlock TextAlignment="Center" Foreground="#59FFFFFF" Padding="0,0,0,20" Grid.ColumnSpan="3" Margin="0,37,0,89" Grid.RowSpan="3">Time</TextBlock>
+
             <Button Grid.Row="2" Width="40" Height="40" VerticalAlignment="Top" 
-                    HorizontalAlignment="Right" Margin="0,69,20,0" Panel.ZIndex="1"
+                    HorizontalAlignment="Right" Margin="0,84,-101,0" Panel.ZIndex="1"
                     Click="UpdateOnclick" Grid.Column="2" Grid.RowSpan="2">
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
@@ -85,11 +95,13 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <lvc:CartesianChart Name="TimePowerChart" Grid.Row="2" Margin="10, 0, 10, 20"  Hoverable="False" DataTooltip="{x:Null}" Grid.ColumnSpan="3">
+
+            <lvc:CartesianChart Name="TimePowerChart" Grid.Row="1" Margin="14,19,-101,10"  Hoverable="False" DataTooltip="{x:Null}" Grid.RowSpan="2" Grid.ColumnSpan="3">
                 <lvc:CartesianChart.Series>
-                    <lvc:ColumnSeries Values="5,9,8,6,1,5,7,3,6,8"/>
+                    <lvc:ColumnSeries Values="5,9,8,6,1,5,7,7,6,8,5,7,8,6,3" Configuration="{Binding Mapper}"/>
                 </lvc:CartesianChart.Series>
             </lvc:CartesianChart>
+            
             <StackPanel Grid.Row="3" VerticalAlignment="Center" Margin="25,0,25,0" Grid.ColumnSpan="3">
                 <TextBlock Opacity=".4" FontSize="13">Yhteenveto <LineBreak />Rahan käyttö</TextBlock>
                 <StackPanel Orientation="Horizontal">
@@ -99,7 +111,16 @@
             </StackPanel>
         </Grid>
 
-        <Grid Margin="31,58,-1,190" MaxHeight="350" Grid.Column="1">
+
+
+
+
+
+
+
+
+
+        <Grid Margin="79,31,-49,172" MaxHeight="350" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" Opacity=".2" ShadowDepth="1"/>
             </Grid.Effect>
@@ -146,7 +167,7 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-        <TextBlock Text="Muokkailla sit ku json jne jne" Margin="32,368,293,113" Grid.ColumnSpan="2"></TextBlock>
+        <TextBlock Text="Muokkailla sit ku json jne jne" Margin="32,175,293,113" Grid.ColumnSpan="2" Grid.Row="2"></TextBlock>
     </Grid>
 </Page>
 

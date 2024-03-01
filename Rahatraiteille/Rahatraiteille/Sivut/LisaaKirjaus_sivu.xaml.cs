@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using MaterialDesignThemes.Wpf;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Rahatraiteille.Luokat;
 
 namespace Rahatraiteille.Sivut
@@ -18,6 +21,19 @@ namespace Rahatraiteille.Sivut
             LoadKategoriatFromJson();
             kirjauslista = Tallentaja_kirjaus.LataaKirjaukset();
             PaivitaLista();
+        }
+
+        internal class Sisältö
+        {
+            public SolidColorBrush kategoriaVari { get; set; }
+
+            public string menoNimi { get; set; }
+
+            public string menoEuro {  get; set; }
+            
+            public string menoPv {  get; set; }
+
+            public string menoKategoria { get; set; }
         }
 
         private void LoadKategoriatFromJson()
@@ -36,18 +52,29 @@ namespace Rahatraiteille.Sivut
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
 
+
+
         public void PaivitaLista()
         {
-            var stringgi = "";
-            foreach (var kirjaus in kirjauslista.TakeLast(4).Reverse())
-                stringgi += $"{kirjaus.nimi} [{kirjaus.euro} €] - [{kirjaus.kategoria}] {kirjaus.pvm}\n";
 
-            textBlock.Text = stringgi;
+            List<Sisältö> items = new List<Sisältö>();
+
+            //var stringgi = "";
+            foreach (var kirjaus in kirjauslista.TakeLast(10).Reverse())
+            {
+               items.Add(new Sisältö() { menoNimi = kirjaus.nimi, menoEuro = kirjaus.euro + " €", menoKategoria = kirjaus.kategoria/*FindKategoriaColor(kirjaus.kategoria.ToString())*/, menoPv =  kirjaus.pvm});
+            }
+                //
+                //stringgi += $"{kirjaus.nimi} [{kirjaus.euro} €] - [{kirjaus.kategoria}] {kirjaus.pvm}\n";
+
+            //textBlock.Text = stringgi;
 
             nimiTextBox.Text = string.Empty;
             kategoriatDropdown.Text = string.Empty;
             euroTextBox.Text = string.Empty;
             datePicker.Text = string.Empty;
+
+            ICname.ItemsSource = items;
         }
 
         private void Lisaa_Click(object sender, RoutedEventArgs e)
@@ -126,3 +153,25 @@ namespace Rahatraiteille.Sivut
         }
     }
 }
+
+/*
+ internal class KategoriaVari
+ {
+     public string nimi { get; set; }
+     public string vari { get; set; }
+ }
+private SolidColorBrush FindKategoriaColor(string kategoriA)
+ {
+     try
+     {
+         string json = File.ReadAllText("kategoriat.json");
+         var listOb = JsonConvert.DeserializeObject<List<KategoriaVari>>(json);
+         //var data = (JObject)JsonConvert.DeserializeObject(json);
+         var descListOb = listOb.OrderBy(x => x.vari);
+         string Color = JsonConvert.SerializeObject(descListOb);
+
+         SolidColorBrush color = (SolidColorBrush)new BrushConverter().ConvertFromString(Color);
+         return color;
+     }
+     catch (Exception ex) { Console.WriteLine(ex.Message); }
+ }*/

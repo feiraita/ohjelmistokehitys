@@ -5,6 +5,7 @@ using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using Rahatraiteille.Luokat;
+using LiveCharts.Configurations;
 
 namespace Rahatraiteille.Sivut
 {
@@ -13,6 +14,7 @@ namespace Rahatraiteille.Sivut
         private double _lastLecture;
         private double _trend;
 
+        List<Kategoria> kategorialista = new List<Kategoria>();
 
         public Etusivu_sivu()
         {
@@ -58,13 +60,25 @@ namespace Rahatraiteille.Sivut
                         SetLecture();
                         ListaMäärä.Text = count.ToString();
                         Lista.Text = count.ToString();
+
                         Aika2.Text = DateTime.Now.ToString("yyyy - MM - dd");
                     });
                 }
             });
-
             DataContext = this;
+
+            kategorialista = Tallentaja_kategoria.LataaKategoriat();
+
+           /* Mapper = Mappers.Xy<City>()
+                .X((city, index) => index)
+                .Y(city => city.Population);*/
         }
+
+        class Data
+        {
+            string Mapper { get; set; }
+        }
+
 
         public SeriesCollection LastHourSeries { get; set; }
 

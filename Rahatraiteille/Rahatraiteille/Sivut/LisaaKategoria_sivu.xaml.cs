@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -33,37 +35,59 @@ namespace Rahatraiteille.Sivut
         public LisaaKategoria_sivu()
         {
             InitializeComponent();
+
             kategorialista = Tallentaja_kategoria.LataaKategoriat();
+
             PaivitaLista();
         }
 
         public void PaivitaLista()
         {
-            var stringgi = "";
-            foreach (var kategoria in kategorialista)
-                stringgi += $"{kategoria.nimi} - {kategoria.vari}\n";
+            List<Sisältö> items = new List<Sisältö>();
 
-            textBlock.Text = stringgi;
+            //var stringgi = "";
+            foreach (var kategoria in kategorialista)
+            {
+                string c1 = kategoria.vari;
+                SolidColorBrush c2 = (SolidColorBrush)new BrushConverter().ConvertFromString(c1);
+                items.Add(new Sisältö() { kategoria = kategoria.nimi, bgc = c2}) ;
+            }
+
+                //stringgi += $"{kategoria.nimi} - {kategoria.vari}\n";
+
+            //textBlock.Text = stringgi;
 
             nimiTextBox.Text = string.Empty;
-            variTextBox.Text = string.Empty;
-        }
 
+            ICname.ItemsSource = items;
+
+        }
+        internal class Sisältö
+        {
+            public string kategoria { get; set; }
+
+            public SolidColorBrush bgc { get; set; }
+        }
         private void Lisaa_Click(object sender, RoutedEventArgs e)
         {
             string name = string.Empty;
             string color = string.Empty;
 
             if (!string.IsNullOrEmpty(nimiTextBox.Text)) name = nimiTextBox.Text;
-            if (!string.IsNullOrEmpty(variTextBox.Text)) color = variTextBox.Text;
+
+            /*if (!string.IsNullOrEmpty(variTextBox.Text)) */color = CPicker.Color.ToString();
 
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(color))
-            {
-                string Name = char.ToUpper(name.First()) + name.Substring(1).ToLower();
-                string Color = char.ToUpper(color.First()) + color.Substring(1).ToLower();
+             {
+                 string Name = char.ToUpper(name.First()) + name.Substring(1).ToLower();
+                 string Color = color;
 
-                var newKategoria = new Kategoria(Name, Color);
-                kategorialista.Add(newKategoria);
+                 var newKategoria = new Kategoria(Name, Color);
+                 kategorialista.Add(newKategoria);
+
+                Tallentaja_kategoria.TallennaKategoriat(kategorialista);
+                PaivitaLista();
+                //KategorianVari();
             }
 
             else
@@ -71,10 +95,6 @@ namespace Rahatraiteille.Sivut
                 MessageBox.Show("Täytä kentät oikein.", 
                     "Kirjaus error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-           
-            Tallentaja_kategoria.TallennaKategoriat(kategorialista);
-            PaivitaLista();
-            KategorianVari();
         }
         
         private void Poista_Click(object sender, RoutedEventArgs e)
@@ -108,26 +128,24 @@ namespace Rahatraiteille.Sivut
             poistaTextBox.Text = "";
         }
 
-        public void KategorianVari()
+ /*       public void KategorianVari()
         {
-            string before = variTextBox.Text;
+            string before = variTextBox.Text.ToString();
             string after = char.ToUpper(before.First()) + before.Substring(1).ToLower();
 
             SolidColorBrush myBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(after);
-            rectangle.Fill = myBrush;
-        }
 
+            variTextBox.Text = string.Empty;
+        }*/
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (nimiTextBox.Text != "") nimiPlaceholder.Visibility = Visibility.Hidden;
             else nimiPlaceholder.Visibility = Visibility.Visible;
 
-            if (variTextBox.Text != "") variPlaceholder.Visibility = Visibility.Hidden;
-            else variPlaceholder.Visibility = Visibility.Visible;
-
             if (poistaTextBox.Text != "") poistaPlaceholder.Visibility = Visibility.Hidden;
             else poistaPlaceholder.Visibility = Visibility.Visible;
         }
+
     }
 }
 
