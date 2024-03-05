@@ -10,8 +10,8 @@
         Title="LisaaKategoria_sivu" Height="500" Width="800" Background="#FFD3D9BD">
 
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="508,113,47,147">
-            <ItemsControl Name="ICname" Width="178">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="368,118,151,80">
+            <ItemsControl Name="ICname" Width="268" Height="296" Background="#7FFFFFFF">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border Name="reuna" ClipToBounds="True" CornerRadius="6" Background="{Binding bgc}">
@@ -24,19 +24,17 @@
             </ItemsControl>
         </ScrollViewer>
 
-
-        <TextBox x:Name="nimiTextBox" HorizontalAlignment="Left" Margin="141,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" Height="30"/>
-        <Label x:Name="nimiPlaceholder" Content="Nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="141,222,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
-
-        <Button Content="Lisää" HorizontalAlignment="Left" Margin="266,216,0,0" VerticalAlignment="Top" Click="Lisaa_Click" IsDefault="True" Height="28" Width="74" Background="#A38A66" BorderBrush="Black"/>
+        <TextBox x:Name="nimiTextBox" HorizontalAlignment="Left" Margin="151,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" Height="30"/>
+        <Label x:Name="nimiPlaceholder" Content="Nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="151,87,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
+        <Button Content="Lisää" HorizontalAlignment="Left" Margin="151,265,0,0" VerticalAlignment="Top" Click="Lisaa_Click" IsDefault="True" Height="35" Width="120" Background="#A38A66" BorderBrush="Black"/>
         <!--<Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="53" Margin="266,136,0,0" VerticalAlignment="Top" Width="120" Fill="White"/>-->
 
-        <TextBox x:Name="poistaTextBox" HorizontalAlignment="Left" Margin="141,319,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" Height="30"/>
-        <Label x:Name="poistaPlaceholder" Content="Poistettavan nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="141,321,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
-        <Button Content="Poista" HorizontalAlignment="Left" Margin="266,320,0,0" VerticalAlignment="Top" Click="Poista_Click" Height="28" Width="72" Background="#A38A66" BorderBrush="Black"/>
-        <Label Content="Luodut Kategoriat:" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="508,80,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
+        <TextBox x:Name="poistaTextBox" HorizontalAlignment="Left" Margin="151,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" Height="30"/>
+        <Label x:Name="poistaPlaceholder" Content="Poistettavan nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="151,350,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
+        <Button Content="Poista" HorizontalAlignment="Left" Margin="151,385,0,0" VerticalAlignment="Top" Click="Poista_Click" Height="35" Width="120" Background="#A38A66" BorderBrush="Black"/>
+        <Label Content="Luodut Kategoriat:" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="368,85,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
 
-        <materialDesign:ColorPicker x:Name="CPicker" Margin="369,180,331,220" TabIndex="2147483646" Color="#FF1ED832"/>
+        <materialDesign:ColorPicker x:Name="CPicker" Margin="151,132,529,250" TabIndex="2147483646" Color="#FF1ED832"/>
 
     </Grid>
 </Page>

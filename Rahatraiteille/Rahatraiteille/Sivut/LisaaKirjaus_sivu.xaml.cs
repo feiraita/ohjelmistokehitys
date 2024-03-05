@@ -59,15 +59,10 @@ namespace Rahatraiteille.Sivut
 
             List<Sisältö> items = new List<Sisältö>();
 
-            //var stringgi = "";
             foreach (var kirjaus in kirjauslista.TakeLast(10).Reverse())
             {
                items.Add(new Sisältö() { menoNimi = kirjaus.nimi, menoEuro = kirjaus.euro + " €", menoKategoria = kirjaus.kategoria/*FindKategoriaColor(kirjaus.kategoria.ToString())*/, menoPv =  kirjaus.pvm});
             }
-                //
-                //stringgi += $"{kirjaus.nimi} [{kirjaus.euro} €] - [{kirjaus.kategoria}] {kirjaus.pvm}\n";
-
-            //textBlock.Text = stringgi;
 
             nimiTextBox.Text = string.Empty;
             kategoriatDropdown.Text = string.Empty;

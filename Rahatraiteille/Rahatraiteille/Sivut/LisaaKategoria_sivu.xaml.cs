@@ -35,9 +35,7 @@ namespace Rahatraiteille.Sivut
         public LisaaKategoria_sivu()
         {
             InitializeComponent();
-
             kategorialista = Tallentaja_kategoria.LataaKategoriat();
-
             PaivitaLista();
         }
 
@@ -65,9 +63,9 @@ namespace Rahatraiteille.Sivut
         internal class Sisältö
         {
             public string kategoria { get; set; }
-
             public SolidColorBrush bgc { get; set; }
         }
+
         private void Lisaa_Click(object sender, RoutedEventArgs e)
         {
             string name = string.Empty;
