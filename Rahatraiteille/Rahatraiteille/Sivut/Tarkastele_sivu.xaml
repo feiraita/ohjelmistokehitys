@@ -1,0 +1,29 @@
+﻿<Window x:Class="Rahatraiteille.Tarkastele_sivu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Rahatraiteille"
+        mc:Ignorable="d"
+        Title="Tarkastele_sivu" Height="500" Width="800" Background="#FFD3D9BD">
+    <Grid>
+        <Label Content="Kirjaukset:" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="236,107,0,0" VerticalAlignment="Top" Width="163" Height="28"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="175,140,216,34">
+            <ItemsControl Name="ICname" Width="326" Background="#7FFFFFFF" Height="267">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Name="reuna" ClipToBounds="True" CornerRadius="6" Background="{Binding kategoriaVari}">
+                            <StackPanel Orientation="Horizontal" Background="Transparent">
+                                <Label Content="{Binding menoNimi}"/>
+                                <Label Content="{Binding menoEuro}"/>
+                                <Label Content="{Binding menoPv}"/>
+                                <Label Content="{Binding menoKategoria}"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+    </Grid>
+</Window>
