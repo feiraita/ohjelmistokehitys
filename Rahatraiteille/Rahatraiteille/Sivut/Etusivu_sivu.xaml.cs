@@ -6,6 +6,8 @@ using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using Rahatraiteille.Luokat;
 using LiveCharts.Configurations;
+using System.Windows.Media;
+using System.Collections.ObjectModel;
 
 namespace Rahatraiteille.Sivut
 {
@@ -15,6 +17,12 @@ namespace Rahatraiteille.Sivut
         private double _trend;
 
         List<Kategoria> kategorialista = new List<Kategoria>();
+
+        List<Kirjaus> kirjauslista = new List<Kirjaus>();
+
+        //public SeriesCollection Yhteenveto { get; set; } = new SeriesCollection();
+
+        //List<double> yhteenvetoLista = new List<double>();
 
         public Etusivu_sivu()
         {
@@ -42,7 +50,7 @@ namespace Rahatraiteille.Sivut
                         new ObservableValue(0),
                         new ObservableValue(0),
                         new ObservableValue(0)
-        }
+                    }
                 }
             };
 
@@ -50,38 +58,62 @@ namespace Rahatraiteille.Sivut
             {
                 while (true)
                 {
+                    /*foreach (var kirjaus in kirjauslista)
+                    {
+                        yhteenvetoLista.Add(kirjaus.euro);
+                    }*/
+
                     Thread.Sleep(2000);
                     int count = Tallentaja_kategoria.LataaKategoriat().Count;
+                    double _summa = 0;
                     _trend = (count);
+
+                    foreach (var kirjaus in kirjauslista)
+                    {
+                        _summa = _summa + kirjaus.euro;
+                    }
+
+                    //_yhteenveto = double.Join(", ", yhteenvetoLista);
+
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         LastHourSeries[0].Values.Add(new ObservableValue(_trend));
                         LastHourSeries[0].Values.RemoveAt(0);
                         SetLecture();
+
                         ListaMäärä.Text = count.ToString();
                         Lista.Text = count.ToString();
-
                         Aika2.Text = DateTime.Now.ToString("yyyy - MM - dd");
+                        Summa.Text = _summa.ToString();
+                        //_yhteenveto = string.Join(", ", yhteenvetoLista);
                     });
                 }
             });
+
             DataContext = this;
 
             kategorialista = Tallentaja_kategoria.LataaKategoriat();
 
-           /* Mapper = Mappers.Xy<City>()
-                .X((city, index) => index)
-                .Y(city => city.Population);*/
-        }
+            kirjauslista = Tallentaja_kirjaus.LataaKirjaukset();
 
-        class Data
+            //UpdateYhteenveto();
+
+        }
+        /*private void UpdateYhteenveto()
         {
-            string Mapper { get; set; }
-        }
+            // Update the Yhteenveto values
+            Yhteenveto.Clear(); // Clear existing data
 
+            Yhteenveto[0].Values.Add(new ObservableValue(2));
 
+            //Yhteenveto.Add(10);
+            //Yhteenveto.Add(20);
+            //Yhteenveto.Add(30);
+
+            // Notify the UI that the property has changed
+            OnPropertyChanged(nameof(Yhteenveto));
+        }*/
         public SeriesCollection LastHourSeries { get; set; }
-
 
         public double LastLecture
         {
@@ -112,11 +144,13 @@ namespace Rahatraiteille.Sivut
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string propertyName = null)
+    protected virtual void OnPropertyChanged(string propertyName = null)
         {
             var handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
+
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
 
         private void UpdateOnclick(object sender, RoutedEventArgs e)
         {

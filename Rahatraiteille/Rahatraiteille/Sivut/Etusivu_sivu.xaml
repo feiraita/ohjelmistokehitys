@@ -95,12 +95,18 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
+            
+            
+            
 
             <lvc:CartesianChart Name="TimePowerChart" Grid.Row="1" Margin="14,19,-101,10"  Hoverable="False" DataTooltip="{x:Null}" Grid.RowSpan="2" Grid.ColumnSpan="3">
                 <lvc:CartesianChart.Series>
-                    <lvc:ColumnSeries Values="5,9,8,6,1,5,7,7,6,8,5,7,8,6,3" Configuration="{Binding Mapper}"/>
+                    <lvc:ColumnSeries Values="{Binding Yhteenveto}" Configuration="{Binding Mapper}"/>
                 </lvc:CartesianChart.Series>
             </lvc:CartesianChart>
+            
+            
+            
             
             <StackPanel Grid.Row="3" VerticalAlignment="Center" Margin="25,0,25,0" Grid.ColumnSpan="3">
                 <TextBlock Opacity=".4" FontSize="13">Yhteenveto <LineBreak />Rahan käyttö</TextBlock>
@@ -167,7 +173,7 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-        <TextBlock Text="Muokkailla sit ku json jne jne" Margin="32,175,293,113" Grid.ColumnSpan="2" Grid.Row="2"></TextBlock>
+        <TextBlock x:Name="huom" Text="Muokkailla sit ku json jne jne" Margin="32,175,293,113" Grid.ColumnSpan="2" Grid.Row="2"></TextBlock>
     </Grid>
 </Page>
 

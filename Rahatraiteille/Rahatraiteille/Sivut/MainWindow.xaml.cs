@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,17 +13,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Newtonsoft.Json;
+using Rahatraiteille.Luokat;
 using Rahatraiteille.Sivut;
+using System.Text.Json;
+using System.IO;
 
 namespace Rahatraiteille
 {
     public partial class MainWindow : Window
     {
         DispatcherTimer dt = new DispatcherTimer();
+        List<string> _vinkit = new List<string>();
+
         public MainWindow()
         {
             InitializeComponent();
             Ikkuna();
+            LoadVinkitFromJson();
         }
 
         private void Ikkuna()
@@ -58,6 +66,21 @@ namespace Rahatraiteille
             dt.Start();
         }
         private int increment = 0;
+
+        private void LoadVinkitFromJson()
+        {
+            try
+            {
+                string json = File.ReadAllText("Vinkit.json");
+                List<Vinkki> vinkit = JsonConvert.DeserializeObject<List<Vinkki>>(json);
+
+                foreach (var vinkki in vinkit)
+                {
+                    _vinkit.Add(vinkki.vinkki);
+                }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+        }
         private async void dtTicker(object sender, EventArgs e)
         {
             increment++;
@@ -74,6 +97,14 @@ namespace Rahatraiteille
                 await Task.Delay(3500);
                 Popup1.IsOpen = false;
                 Popup1.PopupAnimation = System.Windows.Controls.Primitives.PopupAnimation.Fade;
+
+                var random = new Random();
+                int index = random.Next(_vinkit.Count);
+                text.Text = _vinkit[index];
+
+                /*var random = new Random();
+                int index = random.Next(_vinkit.Count);
+                text.Text = _vinkit[index].ToString();*/
             }
         }
 
