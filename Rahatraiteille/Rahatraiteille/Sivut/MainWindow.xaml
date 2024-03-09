@@ -47,11 +47,11 @@
             <TabItem x:Name="Tab3" Foreground="White" FontSize="18" Header="Lisää Kategoria" Width="149" HorizontalAlignment="Left">
                 <Frame x:Name="F3" Margin="0,0,-1,0" Height="557" Background="#D2D9BC"></Frame>
             </TabItem>
-            <!--
+            
             <TabItem x:Name="Tab4" Foreground="White" FontSize="18" Header="Tarkastele" Width="149" HorizontalAlignment="Left">
                 <Frame x:Name="F4" Margin="0,0,-1,0" Height="557" Background="#D2D9BC"></Frame>
             </TabItem>
-            -->
+            
         </TabControl>
 
 

@@ -39,10 +39,10 @@ namespace Rahatraiteille
             {
                 F3.Content = new LisaaKategoria_sivu();
             }
-            /*if (Tab4.IsEnabled == true)
+            if (Tab4.IsEnabled == true)
             {
                 F4.Content = new Tarkastele_sivu();
-            } */
+            } 
         }
         private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

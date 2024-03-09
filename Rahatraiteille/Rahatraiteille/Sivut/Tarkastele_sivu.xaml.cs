@@ -21,7 +21,7 @@ namespace Rahatraiteille
     /// <summary>
     /// Interaction logic for Tarkastele_sivu.xaml
     /// </summary>
-    public partial class Tarkastele_sivu : Window
+    public partial class Tarkastele_sivu : Page
     {
         List<Kirjaus> kirjauslista = new List<Kirjaus>();
         public Tarkastele_sivu()
