@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Tarkastele_sivu" Height="500" Width="800" Background="#FFD3D9BD">
     <Grid>
-        <Label Content="Kirjaukset:" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="236,107,0,0" VerticalAlignment="Top" Width="163" Height="28"/>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="175,140,216,34">
+        <Label Content="Kirjaukset:" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="300,37,0,0" VerticalAlignment="Top" Width="163" Height="28"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="239,70,152,104">
             <ItemsControl Name="ICname" Width="326" Background="#7FFFFFFF" Height="267">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -16,6 +16,7 @@
                             <StackPanel Orientation="Horizontal" Background="Transparent">
                                 <Label Content="{Binding menoNimi}"/>
                                 <Label Content="{Binding menoEuro}"/>
+                                <Label Content="€"/>
                                 <Label Content="{Binding menoPv}"/>
                                 <Label Content="{Binding menoKategoria}"/>
                             </StackPanel>
@@ -24,6 +25,13 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
+
+        <Label x:Name="nimiPlaceholder" Content="Nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="140,105,0,0" VerticalAlignment="Top" Width="94" Height="28"/>
+        <TextBox x:Name="Nimi" Foreground="Gray" Margin="140,103,561,365" TextChanged="Nimi_TextChanged"/>
+        <DatePicker x:Name="Aika" Background="#A38A66" Margin="140,221,561,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Kansio" Background="#A38A66" Margin="140,168,561,0" VerticalAlignment="Top"/>
+        <Button x:Name="RahaY" Content="Isoin €" Background="#A38A66" Margin="140,290,566,178" BorderBrush="Black" Click="RahaY_Click"/>
+        <Button x:Name="RahaX" Content="Pienin €" Background="#A38A66" Margin="140,327,566,141" BorderBrush="Black" Click="RahaX_Click"/>
 
     </Grid>
 </Page>

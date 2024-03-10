@@ -64,6 +64,8 @@ namespace Rahatraiteille
             dt.Interval = TimeSpan.FromSeconds(1);
             dt.Tick += dtTicker;
             dt.Start();
+
+            Tarkastele_sivu.PaivitaLista();
         }
         private int increment = 0;
 
@@ -100,11 +102,7 @@ namespace Rahatraiteille
 
                 var random = new Random();
                 int index = random.Next(_vinkit.Count);
-                text.Text = _vinkit[index];
-
-                /*var random = new Random();
-                int index = random.Next(_vinkit.Count);
-                text.Text = _vinkit[index].ToString();*/
+                //text.Text = _vinkit[index];
             }
         }
 

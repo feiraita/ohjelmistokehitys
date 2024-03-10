@@ -65,18 +65,18 @@ namespace Rahatraiteille.Sivut
 
                     Thread.Sleep(2000);
                     int count = Tallentaja_kategoria.LataaKategoriat().Count;
-                    double _summa = 0;
                     _trend = (count);
-
-                    foreach (var kirjaus in kirjauslista)
-                    {
-                        _summa = _summa + kirjaus.euro;
-                    }
 
                     //_yhteenveto = double.Join(", ", yhteenvetoLista);
 
                     Application.Current.Dispatcher.Invoke(() =>
                     {
+                        double _summa = 0;
+                        foreach (var kirjaus in kirjauslista)
+                        {
+                            _summa = _summa + kirjaus.euro;
+                        }
+
                         LastHourSeries[0].Values.Add(new ObservableValue(_trend));
                         LastHourSeries[0].Values.RemoveAt(0);
                         SetLecture();
@@ -148,13 +148,19 @@ namespace Rahatraiteille.Sivut
         {
             var handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
         private void UpdateOnclick(object sender, RoutedEventArgs e)
         {
             TimePowerChart.Update(true);
+
+            kirjauslista = Tallentaja_kirjaus.LataaKirjaukset();
+            double _summa = 0;
+            foreach (var kirjaus in kirjauslista)
+            {
+                _summa = _summa + kirjaus.euro;
+            }
+            Summa.Text = _summa.ToString();
         }
     }
 }

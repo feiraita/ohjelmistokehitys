@@ -1,4 +1,5 @@
-﻿using Rahatraiteille.Luokat;
+﻿using Newtonsoft.Json;
+using Rahatraiteille.Luokat;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,23 +15,58 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using MaterialDesignThemes.Wpf;
+using Newtonsoft.Json.Linq;
 using static Rahatraiteille.Tarkastele_sivu;
+using System.Collections;
+using System.Globalization;
+using System.Security.Policy;
+using System.Text.RegularExpressions;
 
 namespace Rahatraiteille
 {
-    /// <summary>
-    /// Interaction logic for Tarkastele_sivu.xaml
-    /// </summary>
+    
     public partial class Tarkastele_sivu : Page
     {
         List<Kirjaus> kirjauslista = new List<Kirjaus>();
+        List<Sisältö> items = new List<Sisältö>();
+        Regex regex = new Regex("[^0-9.]");
         public Tarkastele_sivu()
         {
             InitializeComponent();
             kirjauslista = Tallentaja_kirjaus.LataaKirjaukset();
-            PaivitaLista();
-        }
+            LoadKategoriatFromJson();
 
+            Nimi.TextChanged += (sender, e) =>
+            {
+                string searchText = Nimi.Text.ToLower();
+                List<Sisältö> filteredItems = items.Where(item => item.menoNimi.ToLower().Contains(searchText)).ToList();
+
+                ICname.ItemsSource = null;
+                ICname.ItemsSource = filteredItems;
+            };
+            Kansio.SelectionChanged += (sender, e) =>
+            {
+                string selectedCategory = Kansio.SelectedItem.ToString();
+                List<Sisältö> filteredItems = items.Where(item => item.menoKategoria.ToLower() == selectedCategory.ToLower()).ToList();
+
+                ICname.ItemsSource = null;
+                ICname.ItemsSource = filteredItems;
+            };
+            Aika.SelectedDateChanged += (sender, e) =>
+            {
+                DateTime? selectedDate = Aika.SelectedDate;
+                string stringgi = selectedDate.ToString();
+
+                    List<Sisältö> filteredItems = items.Where(item => item.menoPv.ToLower().Contains(stringgi)).ToList();
+
+                    ICname.ItemsSource = null;
+                    ICname.ItemsSource = filteredItems;
+            };
+        }
         internal class Sisältö
         {
             public SolidColorBrush kategoriaVari { get; set; }
@@ -42,14 +78,75 @@ namespace Rahatraiteille
 
         public void PaivitaLista()
         {
-            List<Sisältö> items = new List<Sisältö>();
-
-            foreach (var kirjaus in kirjauslista.TakeLast(10).Reverse())
+            foreach (var kirjaus in kirjauslista)
             {
-                items.Add(new Sisältö() { menoNimi = kirjaus.nimi, menoEuro = kirjaus.euro + " €", menoKategoria = kirjaus.kategoria/*FindKategoriaColor(kirjaus.kategoria.ToString())*/, menoPv = kirjaus.pvm });
+                items.Add(new Sisältö() { menoNimi = kirjaus.nimi, menoEuro = kirjaus.euro.ToString(), menoKategoria = kirjaus.kategoria/*FindKategoriaColor(kirjaus.kategoria.ToString())*/, menoPv = kirjaus.pvm });
             }
 
             ICname.ItemsSource = items;
         }
+
+        private void LoadKategoriatFromJson()
+        {
+            try
+            {
+                string json = File.ReadAllText("kategoriat.json");
+                List<Kategoria> kategoriat = JsonConvert.DeserializeObject<List<Kategoria>>(json);
+
+                foreach (var kategoria in kategoriat)
+                {
+                    Console.WriteLine(kategoria.nimi);
+                    Kansio.Items.Add(kategoria.nimi);
+                }
+            }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+        }
+
+        private void RahaY_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in items)
+            {
+                item.menoEuro = regex.Replace(item.menoEuro, "");
+            }
+
+            items.Sort((x, y) => {
+                double xEuro, yEuro;
+                double.TryParse(x.menoEuro, NumberStyles.Float, CultureInfo.InvariantCulture, out xEuro);
+                double.TryParse(y.menoEuro, NumberStyles.Float, CultureInfo.InvariantCulture, out yEuro);
+
+                return yEuro.CompareTo(xEuro);
+            });
+
+            ICname.ItemsSource = null;
+            ICname.ItemsSource = items;
+        }
+
+        private void RahaX_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in items)
+            {
+                item.menoEuro = regex.Replace(item.menoEuro, "");
+            }
+            items.Sort((x, y) => {
+                double xEuro, yEuro;
+                double.TryParse(x.menoEuro, NumberStyles.Float, CultureInfo.InvariantCulture, out xEuro);
+                double.TryParse(y.menoEuro, NumberStyles.Float, CultureInfo.InvariantCulture, out yEuro);
+
+                return xEuro.CompareTo(yEuro);
+            });
+
+            ICname.ItemsSource = null;
+            ICname.ItemsSource = items;
+        }
+        private void Nimi_TextChanged(object sender, EventArgs e)
+        {
+            if (Nimi.Text != "") nimiPlaceholder.Visibility = Visibility.Hidden;
+            else nimiPlaceholder.Visibility = Visibility.Visible;
+        }
     }
+
+    //Aakkosten mukaan
+    /*items.Sort((x, y) => string.Compare(x.menoNimi, y.menoNimi));
+ICname.ItemsSource = null;
+ICname.ItemsSource = items;*/
 }
