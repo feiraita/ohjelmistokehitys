@@ -26,12 +26,12 @@
 
         <TextBox x:Name="nimiTextBox" HorizontalAlignment="Left" Margin="151,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" Height="30"/>
         <Label x:Name="nimiPlaceholder" Content="Nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="151,87,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
-        <Button Content="Lisää" HorizontalAlignment="Left" Margin="151,265,0,0" VerticalAlignment="Top" Click="Lisaa_Click" IsDefault="True" Height="35" Width="120" Background="#A38A66" BorderBrush="Black"/>
+        <Button Content="Lisää" HorizontalAlignment="Left" Margin="151,265,0,0" VerticalAlignment="Top" Click="Lisaa_Click" IsDefault="True" Height="28" Width="118" Background="#A38A66" BorderBrush="Black"/>
         <!--<Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="53" Margin="266,136,0,0" VerticalAlignment="Top" Width="120" Fill="White"/>-->
 
         <TextBox x:Name="poistaTextBox" HorizontalAlignment="Left" Margin="151,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" Height="30"/>
         <Label x:Name="poistaPlaceholder" Content="Poistettavan nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="151,350,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
-        <Button Content="Poista" HorizontalAlignment="Left" Margin="151,385,0,0" VerticalAlignment="Top" Click="Poista_Click" Height="35" Width="120" Background="#A38A66" BorderBrush="Black"/>
+        <Button Content="Poista" HorizontalAlignment="Left" Margin="151,385,0,0" VerticalAlignment="Top" Click="Poista_Click" Height="28" Width="118" Background="#A38A66" BorderBrush="Black"/>
         <Label Content="Luodut Kategoriat:" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="368,85,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
 
         <materialDesign:ColorPicker x:Name="CPicker" Margin="151,132,529,250" TabIndex="2147483646" Color="#FF1ED832"/>

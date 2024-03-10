@@ -28,12 +28,12 @@ using System.Text.RegularExpressions;
 
 namespace Rahatraiteille
 {
-    
     public partial class Tarkastele_sivu : Page
     {
         List<Kirjaus> kirjauslista = new List<Kirjaus>();
         List<Sisältö> items = new List<Sisältö>();
         Regex regex = new Regex("[^0-9.]");
+
         public Tarkastele_sivu()
         {
             InitializeComponent();
@@ -62,7 +62,6 @@ namespace Rahatraiteille
             };
             //-------------------------------------------------------------------------------------
 
-
             Aika.SelectedDateChanged += (sender, e) =>
             {
                 DateTime? selectedDate = Aika.SelectedDate; 
@@ -77,10 +76,7 @@ namespace Rahatraiteille
 
                     ICname.ItemsSource = filteredItems;
                 }
-                else
-                {
-                    ICname.ItemsSource = items;
-                }
+                else { ICname.ItemsSource = items; }
             };
         }
 
@@ -102,7 +98,12 @@ namespace Rahatraiteille
         {
             foreach (var kirjaus in kirjauslista)
             {
-                items.Add(new Sisältö() { menoNimi = kirjaus.nimi, menoEuro = kirjaus.euro.ToString(), menoKategoria = kirjaus.kategoria, menoPv = kirjaus.pvm });
+                items.Add(new Sisältö() { 
+                    menoNimi = kirjaus.nimi, 
+                    menoEuro = kirjaus.euro.ToString(), 
+                    menoKategoria = kirjaus.kategoria, 
+                    menoPv = kirjaus.pvm 
+                });
             }
 
             ICname.ItemsSource = items;
@@ -149,6 +150,7 @@ namespace Rahatraiteille
             {
                 item.menoEuro = regex.Replace(item.menoEuro, "");
             }
+
             items.Sort((x, y) => {
                 double xEuro, yEuro;
                 double.TryParse(x.menoEuro, NumberStyles.Float, CultureInfo.InvariantCulture, out xEuro);

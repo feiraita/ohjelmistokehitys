@@ -20,9 +20,6 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-
-
-
         <Grid Margin="-35,33,65,168" MaxHeight="350" Grid.Row="1" Grid.RowSpan="2">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" Opacity=".2" ShadowDepth="1"/>
@@ -95,19 +92,15 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            
-            
-            
+
 
             <lvc:CartesianChart Name="TimePowerChart" Grid.Row="1" Margin="14,19,-101,10"  Hoverable="False" DataTooltip="{x:Null}" Grid.RowSpan="2" Grid.ColumnSpan="3">
                 <lvc:CartesianChart.Series>
                     <lvc:ColumnSeries Values="{Binding Yhteenveto}" Configuration="{Binding Mapper}"/>
                 </lvc:CartesianChart.Series>
             </lvc:CartesianChart>
-            
-            
-            
-            
+
+
             <StackPanel Grid.Row="3" VerticalAlignment="Center" Margin="25,0,25,0" Grid.ColumnSpan="3">
                 <TextBlock Opacity=".4" FontSize="13">Rahaa käytetty</TextBlock>
                 <StackPanel Orientation="Horizontal">
@@ -160,7 +153,6 @@
             <TextBlock x:Name="Aika2" Grid.Row="1" TextAlignment="Center" Foreground="#59FFFFFF" Padding="0,0,0,20" ></TextBlock>
             <lvc:CartesianChart Grid.Row="2" Margin="-4,0,0,88" Series="{Binding LastHourSeries}" Hoverable="False" DataTooltip="{x:Null}" Grid.RowSpan="2">
                 <lvc:CartesianChart.AxisX>
-                    <!--a small visual improvement, lets hide the first points (x = 0, x=1) to get better animations-->
                     <lvc:Axis MinValue="2"></lvc:Axis>
                 </lvc:CartesianChart.AxisX>
             </lvc:CartesianChart>
@@ -172,48 +164,6 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-        <TextBlock x:Name="huom" Text="Muokkailla sit ku json jne jne" Margin="32,175,293,113" Grid.ColumnSpan="2" Grid.Row="2"></TextBlock>
     </Grid>
 </Page>
-
-<!--<Page x:Class="Rahatraiteille.Sivut.Etusivu_sivu"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             mc:Ignorable="d" d:DesignWidth="300" Height="Auto">
-    <Grid Background="#D2D8BD" Margin="0,-54,-261,-45" Height="349">
-        <Grid.Resources>
-            <Style x:Key="CleanSeparator" TargetType="lvc:Separator">
-                <Setter Property="IsEnabled" Value="False"></Setter>
-            </Style>
-        </Grid.Resources>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <lvc:CartesianChart Grid.Row="2" Margin="0,0,101,0">
-            <lvc:CartesianChart.AxisY>
-                <lvc:Axis Foreground="DodgerBlue" Title="Blue Axis"/>
-                <lvc:Axis Foreground="IndianRed" Title="Red Axis" Position="RightTop">
-                    <lvc:Axis.Separator>
-                        <lvc:Separator Style="{StaticResource CleanSeparator}"></lvc:Separator>
-                    </lvc:Axis.Separator>
-                </lvc:Axis>
-                <lvc:Axis Foreground="DarkOliveGreen" Title="Green Axis" Position="RightTop">
-                    <lvc:Axis.Separator>
-                        <lvc:Separator Style="{StaticResource CleanSeparator}"></lvc:Separator>
-                    </lvc:Axis.Separator>
-                </lvc:Axis>
-            </lvc:CartesianChart.AxisY>
-            <lvc:CartesianChart.Series>
-                <lvc:LineSeries Values="1,5,3,5,3" ScalesYAt="0"/>
-                <lvc:LineSeries Values="20,30,70,20,10"  ScalesYAt="1"/>
-                <lvc:LineSeries Values="600,300,200,600,800"  ScalesYAt="2"/>
-            </lvc:CartesianChart.Series>
-        </lvc:CartesianChart>
-    </Grid>
-    </Page> -->
 

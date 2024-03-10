@@ -7,8 +7,8 @@
         mc:Ignorable="d" Loaded="Page_Loaded"
         Title="Tarkastele_sivu" Height="500" Width="800" Background="#FFD3D9BD">
     <Grid>
-        <Label Content="Kirjaukset:" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="280,53,0,0" VerticalAlignment="Top" Width="164" Height="28"/>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="239,70,152,104">
+        <Label Content="Kirjaukset:" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="362,72,0,0" VerticalAlignment="Top" Width="164" Height="28"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="320,90,70,84">
             <ItemsControl Name="ICname" Width="326" Background="#7FFFFFFF" Height="267">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
@@ -26,12 +26,12 @@
             </ItemsControl>
         </ScrollViewer>
 
-        <Label x:Name="nimiPlaceholder" Content="Nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="140,105,0,0" VerticalAlignment="Top" Width="94" Height="28"/>
-        <TextBox x:Name="Nimi" Foreground="Gray" Margin="140,103,561,365" TextChanged="Nimi_TextChanged"/>
-        <DatePicker x:Name="Aika" Background="#A38A66" Margin="140,221,561,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Kansio" Background="#A38A66" Margin="140,168,561,0" VerticalAlignment="Top"/>
-        <Button x:Name="RahaY" Content="Isoin €" Background="#A38A66" Margin="140,290,566,178" BorderBrush="Black" Click="RahaY_Click"/>
-        <Button x:Name="RahaX" Content="Pienin €" Background="#A38A66" Margin="140,327,566,141" BorderBrush="Black" Click="RahaX_Click"/>
+        <Label x:Name="nimiPlaceholder" Content="Nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="188,139,0,0" VerticalAlignment="Top" Width="94" Height="28"/>
+        <TextBox x:Name="Nimi" Foreground="Gray" Margin="188,139,494,333" TextChanged="Nimi_TextChanged" Width="118" Height="28"/>
+        <DatePicker x:Name="Aika" Background="#A38A66" Margin="188,242,494,0" VerticalAlignment="Top" Width="118" Height="28"/>
+        <ComboBox x:Name="Kansio" Background="#A38A66" Margin="188,196,494,0" VerticalAlignment="Top" Width="118" Height="28"/>
+        <Button x:Name="RahaY" Content="Isoin €" Background="#A38A66" Margin="188,314,494,158" BorderBrush="Black" Click="RahaY_Click" Height="28" Width="118"/>
+        <Button x:Name="RahaX" Content="Pienin €" Background="#A38A66" Margin="188,347,494,125" BorderBrush="Black" Click="RahaX_Click" Width="118" Height="28"/>
 
     </Grid>
 </Page>

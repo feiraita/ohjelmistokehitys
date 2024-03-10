@@ -26,13 +26,9 @@ namespace Rahatraiteille.Sivut
         internal class Sisältö
         {
             public SolidColorBrush kategoriaVari { get; set; }
-
             public string menoNimi { get; set; }
-
             public string menoEuro {  get; set; }
-            
             public string menoPv {  get; set; }
-
             public string menoKategoria { get; set; }
         }
 
@@ -52,16 +48,18 @@ namespace Rahatraiteille.Sivut
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
 
-
-
         public void PaivitaLista()
         {
-
             List<Sisältö> items = new List<Sisältö>();
 
             foreach (var kirjaus in kirjauslista.TakeLast(10).Reverse())
             {
-               items.Add(new Sisältö() { menoNimi = kirjaus.nimi, menoEuro = kirjaus.euro + " €", menoKategoria = kirjaus.kategoria/*FindKategoriaColor(kirjaus.kategoria.ToString())*/, menoPv =  kirjaus.pvm});
+               items.Add(new Sisältö() { 
+                   menoNimi = kirjaus.nimi, 
+                   menoEuro = kirjaus.euro + " €", 
+                   menoKategoria = kirjaus.kategoria,
+                   menoPv =  kirjaus.pvm
+               });
             }
 
             nimiTextBox.Text = string.Empty;
@@ -148,25 +146,3 @@ namespace Rahatraiteille.Sivut
         }
     }
 }
-
-/*
- internal class KategoriaVari
- {
-     public string nimi { get; set; }
-     public string vari { get; set; }
- }
-private SolidColorBrush FindKategoriaColor(string kategoriA)
- {
-     try
-     {
-         string json = File.ReadAllText("kategoriat.json");
-         var listOb = JsonConvert.DeserializeObject<List<KategoriaVari>>(json);
-         //var data = (JObject)JsonConvert.DeserializeObject(json);
-         var descListOb = listOb.OrderBy(x => x.vari);
-         string Color = JsonConvert.SerializeObject(descListOb);
-
-         SolidColorBrush color = (SolidColorBrush)new BrushConverter().ConvertFromString(Color);
-         return color;
-     }
-     catch (Exception ex) { Console.WriteLine(ex.Message); }
- }*/

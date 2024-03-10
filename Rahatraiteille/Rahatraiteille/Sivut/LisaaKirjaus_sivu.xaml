@@ -21,11 +21,11 @@
         <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Margin="197,177,0,0" VerticalAlignment="Top" Height="29" Width="120"/>
         <Button Content="Luo kirjaus" HorizontalAlignment="Left" Margin="353,178,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="Lisaa_Click" IsDefault="True" Background="#A38A66" BorderBrush="Black"/>
 
-        <Label Content="10 viimeksi luotua kirjausta:" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="544,84,0,0" VerticalAlignment="Top" Width="163" Height="28"/>
+        <Label Content="10 viimeksi luotua kirjausta:" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="497,84,0,0" VerticalAlignment="Top" Width="163" Height="28"/>
         <!--<TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="39,-91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="167" Width="144" Background="White"/>-->
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="544,117,12,143">
-            <ItemsControl Name="ICname" Width="243" Background="#7FFFFFFF">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="497,117,31,101">
+            <ItemsControl Name="ICname" Width="265" Background="#7FFFFFFF" Height="257">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border Name="reuna" ClipToBounds="True" CornerRadius="6" Background="{Binding kategoriaVari}">
@@ -41,9 +41,9 @@
             </ItemsControl>
         </ScrollViewer>
 
-        <TextBox x:Name="poistaTextBox" HorizontalAlignment="Left" Margin="38,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged" Height="30"/>
-        <Label x:Name="poistaPlaceholder" Content="Poistettavan nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="38,335,0,0" VerticalAlignment="Top" Width="120" Height="28"/>
-        <DatePicker x:Name="poistaDatePicker" HorizontalAlignment="Left" Margin="184,333,0,0" VerticalAlignment="Top" Height="29" Width="120"/>
+        <TextBox x:Name="poistaTextBox" HorizontalAlignment="Left" Margin="38,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" TextChanged="textBox_TextChanged" Height="28"/>
+        <Label x:Name="poistaPlaceholder" Content="Poistettavan nimi" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="38,330,0,0" VerticalAlignment="Top" Width="118" Height="28"/>
+        <DatePicker x:Name="poistaDatePicker" HorizontalAlignment="Left" Margin="184,333,0,0" VerticalAlignment="Top" Height="28" Width="118"/>
         <Button Content="Poista kirjaus" HorizontalAlignment="Left" Margin="353,335,0,0" VerticalAlignment="Top" Height="28" Width="118" Click="Poista_Click" IsDefault="True" Background="#A38A66" BorderBrush="Black"/>
     </Grid>
 </Page>

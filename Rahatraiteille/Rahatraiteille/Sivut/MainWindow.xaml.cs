@@ -25,8 +25,8 @@ namespace Rahatraiteille
     {
         DispatcherTimer dt = new DispatcherTimer();
         List<string> _vinkit = new List<string>();
-
         static Random rnd = new Random();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -66,6 +66,7 @@ namespace Rahatraiteille
             dt.Tick += dtTicker;
             dt.Start();
         }
+
         private int increment = 0;
 
         private void LoadVinkitFromJson()
@@ -84,30 +85,22 @@ namespace Rahatraiteille
         }
         private async void dtTicker(object sender, EventArgs e)
         {
-            
-            //var vinkit = new List<string> { "one", "two", "three", "four" };
             increment++;
 
-            TimerLable.Content = increment.ToString();
-
-            if (increment == 7)
+            if (increment == 5)
             {
                 int index = rnd.Next(_vinkit.Count);
                 popupTextBlock.Text = _vinkit[index];
                 Popup1.IsOpen = true;
                 increment = 0;
             }
+
             if (increment == 1)
             {
                 await Task.Delay(3500);
                 Popup1.IsOpen = false;
                 Popup1.PopupAnimation = System.Windows.Controls.Primitives.PopupAnimation.Fade;
-
-                var random = new Random();
-                int index = random.Next(_vinkit.Count);
-                //text.Text = _vinkit[index];
             }
         }
-
     }
 }

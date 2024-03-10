@@ -43,7 +43,6 @@ namespace Rahatraiteille.Sivut
         {
             List<Sisältö> items = new List<Sisältö>();
 
-            //var stringgi = "";
             foreach (var kategoria in kategorialista)
             {
                 string c1 = kategoria.vari;
@@ -51,14 +50,8 @@ namespace Rahatraiteille.Sivut
                 items.Add(new Sisältö() { kategoria = kategoria.nimi, bgc = c2}) ;
             }
 
-                //stringgi += $"{kategoria.nimi} - {kategoria.vari}\n";
-
-            //textBlock.Text = stringgi;
-
             nimiTextBox.Text = string.Empty;
-
             ICname.ItemsSource = items;
-
         }
         internal class Sisältö
         {
@@ -72,8 +65,7 @@ namespace Rahatraiteille.Sivut
             string color = string.Empty;
 
             if (!string.IsNullOrEmpty(nimiTextBox.Text)) name = nimiTextBox.Text;
-
-            /*if (!string.IsNullOrEmpty(variTextBox.Text)) */color = CPicker.Color.ToString();
+            color = CPicker.Color.ToString();
 
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(color))
              {
@@ -85,7 +77,6 @@ namespace Rahatraiteille.Sivut
 
                 Tallentaja_kategoria.TallennaKategoriat(kategorialista);
                 PaivitaLista();
-                //KategorianVari();
             }
 
             else
@@ -126,15 +117,6 @@ namespace Rahatraiteille.Sivut
             poistaTextBox.Text = "";
         }
 
- /*       public void KategorianVari()
-        {
-            string before = variTextBox.Text.ToString();
-            string after = char.ToUpper(before.First()) + before.Substring(1).ToLower();
-
-            SolidColorBrush myBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(after);
-
-            variTextBox.Text = string.Empty;
-        }*/
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (nimiTextBox.Text != "") nimiPlaceholder.Visibility = Visibility.Hidden;
@@ -146,27 +128,3 @@ namespace Rahatraiteille.Sivut
 
     }
 }
-
-
-/* try
-                {
-                    string Name = char.ToUpper(name.First()) + name.Substring(1).ToLower();
-
-                    var poistettava = kategorialista.First(item => name == Name);
-                    kategorialista.Remove(poistettava);
-                }
-                catch (Exception ex) { 
-                    textBlock.Text = ex.Message;
-                }
-*/
-/*
-var list = new List<string> { "Red", "Blue", "Green" };
-
-var rnd = new Random();
-int index = rnd.Next(list.Count);
-textBlock2.Text = list[index];
-
-SolidColorBrush myBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(list[index]);
-
-variNappi.Background = myBrush;
-*/
