@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rahatraiteille"
-        mc:Ignorable="d"
+        mc:Ignorable="d" Loaded="Page_Loaded"
         Title="Tarkastele_sivu" Height="500" Width="800" Background="#FFD3D9BD">
     <Grid>
-        <Label Content="Kirjaukset:" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="300,37,0,0" VerticalAlignment="Top" Width="163" Height="28"/>
+        <Label Content="Kirjaukset:" Background="Transparent" Opacity="0.5" IsHitTestVisible="False" HorizontalAlignment="Left" Margin="280,53,0,0" VerticalAlignment="Top" Width="164" Height="28"/>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="239,70,152,104">
             <ItemsControl Name="ICname" Width="326" Background="#7FFFFFFF" Height="267">
                 <ItemsControl.ItemTemplate>

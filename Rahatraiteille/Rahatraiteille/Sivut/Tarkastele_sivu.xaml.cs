@@ -37,9 +37,10 @@ namespace Rahatraiteille
         public Tarkastele_sivu()
         {
             InitializeComponent();
-            kirjauslista = Tallentaja_kirjaus.LataaKirjaukset();
-            LoadKategoriatFromJson();
+            kirjauslista = Tallentaja_kirjaus.LataaKirjaukset(); //Lataa jsonista kirjaukset tallentaja_kirjaus classin kautta
+            LoadKategoriatFromJson(); //Lataa kategoriat jsonista ohjelman avautuessa
 
+            // Nimen etsintä------------------------------------------------------------------------
             Nimi.TextChanged += (sender, e) =>
             {
                 string searchText = Nimi.Text.ToLower();
@@ -48,6 +49,9 @@ namespace Rahatraiteille
                 ICname.ItemsSource = null;
                 ICname.ItemsSource = filteredItems;
             };
+            //--------------------------------------------------------------------------------------
+
+            // Kategorian kautta etsiminen----------------------------------------------------------
             Kansio.SelectionChanged += (sender, e) =>
             {
                 string selectedCategory = Kansio.SelectedItem.ToString();
@@ -56,17 +60,35 @@ namespace Rahatraiteille
                 ICname.ItemsSource = null;
                 ICname.ItemsSource = filteredItems;
             };
+            //-------------------------------------------------------------------------------------
+
+
             Aika.SelectedDateChanged += (sender, e) =>
             {
-                DateTime? selectedDate = Aika.SelectedDate;
-                string stringgi = selectedDate.ToString();
+                DateTime? selectedDate = Aika.SelectedDate; 
 
-                    List<Sisältö> filteredItems = items.Where(item => item.menoPv.ToLower().Contains(stringgi)).ToList();
+                if (selectedDate != null)
+                {
+                    string selectedDateAsString = selectedDate.Value.ToString("dd/MM/yyyy");
+
+                    List<Sisältö> filteredItems = items.Where(item => item.menoPv == selectedDateAsString).ToList();
 
                     ICname.ItemsSource = null;
+
                     ICname.ItemsSource = filteredItems;
+                }
+                else
+                {
+                    ICname.ItemsSource = items;
+                }
             };
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            PaivitaLista();
+        }
+
         internal class Sisältö
         {
             public SolidColorBrush kategoriaVari { get; set; }
@@ -80,7 +102,7 @@ namespace Rahatraiteille
         {
             foreach (var kirjaus in kirjauslista)
             {
-                items.Add(new Sisältö() { menoNimi = kirjaus.nimi, menoEuro = kirjaus.euro.ToString(), menoKategoria = kirjaus.kategoria/*FindKategoriaColor(kirjaus.kategoria.ToString())*/, menoPv = kirjaus.pvm });
+                items.Add(new Sisältö() { menoNimi = kirjaus.nimi, menoEuro = kirjaus.euro.ToString(), menoKategoria = kirjaus.kategoria, menoPv = kirjaus.pvm });
             }
 
             ICname.ItemsSource = items;
@@ -144,9 +166,4 @@ namespace Rahatraiteille
             else nimiPlaceholder.Visibility = Visibility.Visible;
         }
     }
-
-    //Aakkosten mukaan
-    /*items.Sort((x, y) => string.Compare(x.menoNimi, y.menoNimi));
-ICname.ItemsSource = null;
-ICname.ItemsSource = items;*/
 }

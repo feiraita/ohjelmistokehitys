@@ -85,15 +85,15 @@ namespace Rahatraiteille
         private async void dtTicker(object sender, EventArgs e)
         {
             
-            var vinkit = new List<string> { "one", "two", "three", "four" };
+            //var vinkit = new List<string> { "one", "two", "three", "four" };
             increment++;
 
             TimerLable.Content = increment.ToString();
 
             if (increment == 7)
             {
-                int index = rnd.Next(vinkit.Count);
-                popupTextBlock.Text = vinkit[index];
+                int index = rnd.Next(_vinkit.Count);
+                popupTextBlock.Text = _vinkit[index];
                 Popup1.IsOpen = true;
                 increment = 0;
             }
