@@ -4,3 +4,4 @@ Rahatraiteille/Rahatraiteille/bin/Release/*
 Rahatraiteille/Rahatraiteille/obj/*
 !Rahatraiteille/Rahatraiteille/bin/Debug/net6.0-windows/kategoriat.json
 !Rahatraiteille/Rahatraiteille/bin/Debug/net6.0-windows/kirjaukset.json
+!Rahatraiteille/Rahatraiteille/bin/Debug/net6.0-windows/vinkit.json
