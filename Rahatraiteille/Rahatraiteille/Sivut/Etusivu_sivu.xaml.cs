@@ -56,7 +56,7 @@ namespace Rahatraiteille.Sivut
                     int count = Tallentaja_kategoria.LataaKategoriat().Count;
                     double summa = kirjauslista.Sum(kirjauslista => kirjauslista.euro);
 
-                    _trend = (summa);
+                    _trend = (count);
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         LastHourSeries[0].Values.Add(new ObservableValue(_trend));
@@ -80,9 +80,11 @@ namespace Rahatraiteille.Sivut
                  .Y(city => city.Population);*/
         }
 
-        class Data { string Mapper { get; set; } }
+        class Data{ string Mapper { get; set; } }
+
 
         public SeriesCollection LastHourSeries { get; set; }
+
 
         public double LastLecture
         {

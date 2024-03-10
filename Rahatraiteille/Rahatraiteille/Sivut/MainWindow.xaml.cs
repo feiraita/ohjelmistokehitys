@@ -19,6 +19,7 @@ namespace Rahatraiteille
     public partial class MainWindow : Window
     {
         DispatcherTimer dt = new DispatcherTimer();
+        static Random rnd = new Random();
         public MainWindow()
         {
             InitializeComponent();
@@ -60,12 +61,16 @@ namespace Rahatraiteille
         private int increment = 0;
         private async void dtTicker(object sender, EventArgs e)
         {
+            
+            var vinkit = new List<string> { "one", "two", "three", "four" };
             increment++;
 
             TimerLable.Content = increment.ToString();
 
             if (increment == 7)
             {
+                int index = rnd.Next(vinkit.Count);
+                popupTextBlock.Text = vinkit[index];
                 Popup1.IsOpen = true;
                 increment = 0;
             }
