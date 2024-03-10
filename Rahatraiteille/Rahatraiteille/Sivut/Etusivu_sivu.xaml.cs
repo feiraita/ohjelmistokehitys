@@ -54,10 +54,9 @@ namespace Rahatraiteille.Sivut
                 {
                     Thread.Sleep(2000);
                     int count = Tallentaja_kategoria.LataaKategoriat().Count;
+                    double summa = kirjauslista.Sum(kirjauslista => kirjauslista.euro);
 
-                    double sumOfEuro = kirjauslista.Sum(kirjauslista => kirjauslista.euro);
-
-                    _trend = (count);
+                    _trend = (summa);
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         LastHourSeries[0].Values.Add(new ObservableValue(_trend));
@@ -65,7 +64,7 @@ namespace Rahatraiteille.Sivut
                         SetLecture();
                         ListaMäärä.Text = count.ToString();
                         Lista.Text = count.ToString();
-                        Summa.Text = sumOfEuro.ToString();
+                        Summa.Text = summa.ToString();
 
                         Aika2.Text = DateTime.Now.ToString("dd - MM - yyyy");
                     });
@@ -81,14 +80,9 @@ namespace Rahatraiteille.Sivut
                  .Y(city => city.Population);*/
         }
 
-        class Data
-        {
-            string Mapper { get; set; }
-        }
-
+        class Data { string Mapper { get; set; } }
 
         public SeriesCollection LastHourSeries { get; set; }
-
 
         public double LastLecture
         {
