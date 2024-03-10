@@ -26,10 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Chart\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Kuvat\RahatRaiteille.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

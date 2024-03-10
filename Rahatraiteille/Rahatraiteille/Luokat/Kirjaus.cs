@@ -8,6 +8,7 @@ namespace Rahatraiteille.Luokat
 {
     internal class Kirjaus
     {
+        //hakee ja asettaa muutuujat--------------------------------------------
         public string nimi { get; set; }
         public string kategoria { get; set; }
         public double euro { get; set; }

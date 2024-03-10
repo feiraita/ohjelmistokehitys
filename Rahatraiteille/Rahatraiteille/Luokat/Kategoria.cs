@@ -9,6 +9,7 @@ namespace Rahatraiteille.Luokat
 {
     internal class Kategoria
     {
+        //hakee ja asettaa muutuujat--------------------------------------------s
         public string nimi { get; set; }
         public string vari { get; set; }
 

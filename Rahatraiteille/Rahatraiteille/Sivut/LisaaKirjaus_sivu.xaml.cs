@@ -23,15 +23,19 @@ namespace Rahatraiteille.Sivut
             PaivitaLista();
         }
 
+
+        //hakee ja asettaa muutuujat--------------------------------------------
         internal class Sisältö
         {
             public SolidColorBrush kategoriaVari { get; set; }
             public string menoNimi { get; set; }
-            public string menoEuro {  get; set; }
-            public string menoPv {  get; set; }
+            public string menoEuro { get; set; }
+            public string menoPv { get; set; }
             public string menoKategoria { get; set; }
         }
+        //-----------------------------------------------------------------
 
+        //Ladataan json tiedostosta kategoriat-----------------------------
         private void LoadKategoriatFromJson()
         {
             try
@@ -47,19 +51,22 @@ namespace Rahatraiteille.Sivut
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
+        //-----------------------------------------------------------------
 
+        //itse päivittäjä, itemcontrol lista elementti luonti ja sen asetus------------
         public void PaivitaLista()
         {
             List<Sisältö> items = new List<Sisältö>();
 
             foreach (var kirjaus in kirjauslista.TakeLast(10).Reverse())
             {
-               items.Add(new Sisältö() { 
-                   menoNimi = kirjaus.nimi, 
-                   menoEuro = kirjaus.euro + " €", 
-                   menoKategoria = kirjaus.kategoria,
-                   menoPv =  kirjaus.pvm
-               });
+                items.Add(new Sisältö()
+                {
+                    menoNimi = kirjaus.nimi,
+                    menoEuro = kirjaus.euro + " €",
+                    menoKategoria = kirjaus.kategoria,
+                    menoPv = kirjaus.pvm
+                });
             }
 
             nimiTextBox.Text = string.Empty;
@@ -69,7 +76,9 @@ namespace Rahatraiteille.Sivut
 
             ICname.ItemsSource = items;
         }
+        //-----------------------------------------------------------------
 
+        //lisätään tieto json tiedostoon tietyssä formaatissa--------------
         private void Lisaa_Click(object sender, RoutedEventArgs e)
         {
             string name = string.Empty;
@@ -93,14 +102,16 @@ namespace Rahatraiteille.Sivut
 
             else
             {
-                MessageBox.Show("Täytä kentät oikein.", 
+                MessageBox.Show("Täytä kentät oikein.",
                     "Kirjaus error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             Tallentaja_kirjaus.TallennaKirjaukset(kirjauslista);
             PaivitaLista();
         }
+        //-----------------------------------------------------------------
 
+        //poistetaan nimen mukaan json elementti tiedostosta/listasta------
         private void Poista_Click(object sender, RoutedEventArgs e)
         {
             string name = string.Empty;
@@ -131,8 +142,9 @@ namespace Rahatraiteille.Sivut
                 Tallentaja_kirjaus.TallennaKirjaukset(kirjauslista);
                 poistaTextBox.Text = "";
             }
-        }
+        }//-------------------------------------------------------------------------
 
+        //tekstilaatikon muuttuessa lable:t katoaa-----------------------------------------------
         private void textBox_TextChanged(object sender, EventArgs e)
         {
             if (nimiTextBox.Text != "") nimiPlaceholder.Visibility = Visibility.Hidden;
@@ -144,5 +156,6 @@ namespace Rahatraiteille.Sivut
             if (poistaTextBox.Text != "") poistaPlaceholder.Visibility = Visibility.Hidden;
             else poistaPlaceholder.Visibility = Visibility.Visible;
         }
+        //---------------------------------------------------------------------------------------
     }
 }

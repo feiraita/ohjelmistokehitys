@@ -23,9 +23,9 @@ namespace Rahatraiteille
 {
     public partial class MainWindow : Window
     {
-        DispatcherTimer dt = new DispatcherTimer();
-        List<string> _vinkit = new List<string>();
-        static Random rnd = new Random();
+        DispatcherTimer dt = new DispatcherTimer();//uusi ajastin
+        List<string> _vinkit = new List<string>();//vinkki lista
+        static Random rnd = new Random();//randomisoija uusi
 
         public MainWindow()
         {
@@ -33,6 +33,7 @@ namespace Rahatraiteille
             Ikkuna();
             LoadVinkitFromJson();
         }
+
 
         private void Ikkuna()
         {
@@ -51,14 +52,18 @@ namespace Rahatraiteille
             if (Tab4.IsEnabled == true)
             {
                 F4.Content = new Tarkastele_sivu();
-            } 
+            }
         }
+        //-----------------------------------------------------------------
+
+
         private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             await Task.Delay(1);
             dt.Stop();
             Application.Current.Shutdown();
         }
+        //-----------------------------------------------------------------
 
         internal void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -66,6 +71,7 @@ namespace Rahatraiteille
             dt.Tick += dtTicker;
             dt.Start();
         }
+        //-----------------------------------------------------------------
 
         private int increment = 0;
 
@@ -83,14 +89,15 @@ namespace Rahatraiteille
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
+        //-----------------------------------------------------------------
         private async void dtTicker(object sender, EventArgs e)
         {
             increment++;
 
-            if (increment == 12)
+            if (increment == 5)
             {
                 int index = rnd.Next(_vinkit.Count);
-                popupTextBlock.Text = _vinkit[index];
+                //popupTextBlock.Text = _vinkit[index];
                 Popup1.IsOpen = true;
                 increment = 0;
             }
@@ -102,5 +109,6 @@ namespace Rahatraiteille
                 Popup1.PopupAnimation = System.Windows.Controls.Primitives.PopupAnimation.Fade;
             }
         }
+        //-----------------------------------------------------------------
     }
 }

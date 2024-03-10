@@ -39,6 +39,7 @@ namespace Rahatraiteille.Sivut
             PaivitaLista();
         }
 
+        //itse päivittäjä, itemcontrol lista elementti luonti ja sen asetus------------
         public void PaivitaLista()
         {
             List<Sisältö> items = new List<Sisältö>();
@@ -47,18 +48,22 @@ namespace Rahatraiteille.Sivut
             {
                 string c1 = kategoria.vari;
                 SolidColorBrush c2 = (SolidColorBrush)new BrushConverter().ConvertFromString(c1);
-                items.Add(new Sisältö() { kategoria = kategoria.nimi, bgc = c2}) ;
+                items.Add(new Sisältö() { kategoria = kategoria.nimi, bgc = c2 });
             }
 
             nimiTextBox.Text = string.Empty;
             ICname.ItemsSource = items;
         }
+        //-----------------------------------------------------------------
+
+        //hakee ja asettaa muutuujat--------------------------------------------
         internal class Sisältö
         {
             public string kategoria { get; set; }
             public SolidColorBrush bgc { get; set; }
-        }
+        }//-----------------------------------------------------------------------
 
+        //Lisätään json tiedostoon lisätyt tiedot tietyssä formaatissa--------
         private void Lisaa_Click(object sender, RoutedEventArgs e)
         {
             string name = string.Empty;
@@ -68,12 +73,12 @@ namespace Rahatraiteille.Sivut
             color = CPicker.Color.ToString();
 
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(color))
-             {
-                 string Name = char.ToUpper(name.First()) + name.Substring(1).ToLower();
-                 string Color = color;
+            {
+                string Name = char.ToUpper(name.First()) + name.Substring(1).ToLower();
+                string Color = color;
 
-                 var newKategoria = new Kategoria(Name, Color);
-                 kategorialista.Add(newKategoria);
+                var newKategoria = new Kategoria(Name, Color);
+                kategorialista.Add(newKategoria);
 
                 Tallentaja_kategoria.TallennaKategoriat(kategorialista);
                 PaivitaLista();
@@ -81,11 +86,13 @@ namespace Rahatraiteille.Sivut
 
             else
             {
-                MessageBox.Show("Täytä kentät oikein.", 
+                MessageBox.Show("Täytä kentät oikein.",
                     "Kirjaus error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        
+        //-----------------------------------------------------------------
+
+        //Poistetaan elementtiä nimen perusteella json tiedostosta---------
         private void Poista_Click(object sender, RoutedEventArgs e)
         {
             string name = string.Empty;
@@ -107,7 +114,7 @@ namespace Rahatraiteille.Sivut
 
                 else
                 {
-                    MessageBox.Show($"{Name} nimistä kategoriaa ei löytynyt.\nTarkista, että kirjoitit nimen oikein.", 
+                    MessageBox.Show($"{Name} nimistä kategoriaa ei löytynyt.\nTarkista, että kirjoitit nimen oikein.",
                         "Kategoria error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
@@ -116,7 +123,9 @@ namespace Rahatraiteille.Sivut
             Tallentaja_kategoria.TallennaKategoriat(kategorialista);
             poistaTextBox.Text = "";
         }
+        //-----------------------------------------------------------------
 
+        //tekstilaatikon muuttuessa lable:t katoaa-----------------------------------------------
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (nimiTextBox.Text != "") nimiPlaceholder.Visibility = Visibility.Hidden;
@@ -125,6 +134,6 @@ namespace Rahatraiteille.Sivut
             if (poistaTextBox.Text != "") poistaPlaceholder.Visibility = Visibility.Hidden;
             else poistaPlaceholder.Visibility = Visibility.Visible;
         }
-
+        //---------------------------------------------------------------------------------------
     }
 }

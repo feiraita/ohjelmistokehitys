@@ -8,6 +8,7 @@ namespace Rahatraiteille.Luokat
 {
     internal class Vinkki
     {
+        //hakee ja asettaa muutuujat--------------------------------------------
         public string vinkki { get; set; }
 
         public Vinkki(string vinkki)

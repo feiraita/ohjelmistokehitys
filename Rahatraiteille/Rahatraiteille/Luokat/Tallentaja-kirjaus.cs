@@ -10,13 +10,9 @@ namespace Rahatraiteille.Luokat
 {
     internal class Tallentaja_kirjaus
     {
-        private const string TIEDOSTO_NIMI = "kirjaukset.json";
+        private const string TIEDOSTO_NIMI = "kirjaukset.json";//json tiedosto
 
-        public static string testi()
-        {
-            return TIEDOSTO_NIMI;
-        }
-
+        //Hakee polun json tiedostoon---------------------------------------
         private static string GetJsonPath()
         {
             string polku = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -25,7 +21,9 @@ namespace Rahatraiteille.Luokat
 
             return oikeaPolku;
         }
+        //-------------------------------------------------------------------
 
+        //Tallentaa kirjausen json tiedostoon---------------------------------
         public static void TallennaKirjaukset(List<Kirjaus> kirjaukset)
         {
             try
@@ -35,8 +33,9 @@ namespace Rahatraiteille.Luokat
             }
             catch (Exception ex) { Console.WriteLine(ex); }
         }
+        //-------------------------------------------------------------------
 
-
+        //Lataa kirjausen json tiedostosta---------------------------------------
         public static List<Kirjaus> LataaKirjaukset()
         {
             try
@@ -53,5 +52,6 @@ namespace Rahatraiteille.Luokat
 
             return new List<Kirjaus>();
         }
+        //-------------------------------------------------------------------
     }
 }

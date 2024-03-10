@@ -62,9 +62,10 @@ namespace Rahatraiteille
             };
             //-------------------------------------------------------------------------------------
 
+            //Etsitään ajan kautta
             Aika.SelectedDateChanged += (sender, e) =>
             {
-                DateTime? selectedDate = Aika.SelectedDate; 
+                DateTime? selectedDate = Aika.SelectedDate;
 
                 if (selectedDate != null)
                 {
@@ -77,14 +78,17 @@ namespace Rahatraiteille
                     ICname.ItemsSource = filteredItems;
                 }
                 else { ICname.ItemsSource = items; }
-            };
+            };//------------------------------------------------------------------------------
         }
 
+        //Ikkunan avautuessa päivittyy-------------------------------------------------
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             PaivitaLista();
         }
+        //------------------------------------------------------------------------------
 
+        //hakee ja asettaa muuttujat-----------------------------------------------------
         internal class Sisältö
         {
             public SolidColorBrush kategoriaVari { get; set; }
@@ -93,22 +97,27 @@ namespace Rahatraiteille
             public string menoPv { get; set; }
             public string menoKategoria { get; set; }
         }
+        //------------------------------------------------------------------------------
 
+        //itse päivittäjä, itemcontrol lista elementti luonti ja sen asetus------------
         public void PaivitaLista()
         {
             foreach (var kirjaus in kirjauslista)
             {
-                items.Add(new Sisältö() { 
-                    menoNimi = kirjaus.nimi, 
-                    menoEuro = kirjaus.euro.ToString(), 
-                    menoKategoria = kirjaus.kategoria, 
-                    menoPv = kirjaus.pvm 
+                items.Add(new Sisältö()
+                {
+                    menoNimi = kirjaus.nimi,
+                    menoEuro = kirjaus.euro.ToString(),
+                    menoKategoria = kirjaus.kategoria,
+                    menoPv = kirjaus.pvm
                 });
             }
 
             ICname.ItemsSource = items;
         }
+        //------------------------------------------------------------------------------
 
+        //Ladataan kategoriat json tiedostosta-----------------------------------------
         private void LoadKategoriatFromJson()
         {
             try
@@ -124,7 +133,9 @@ namespace Rahatraiteille
             }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
+        //------------------------------------------------------------------------------
 
+        //Tutkitaan napeilla rahan kautta järjestyksessä---------------------------------------
         private void RahaY_Click(object sender, RoutedEventArgs e)
         {
             foreach (var item in items)
@@ -142,8 +153,9 @@ namespace Rahatraiteille
 
             ICname.ItemsSource = null;
             ICname.ItemsSource = items;
-        }
+        }        //------------------------------------------------------------------------------
 
+        //Tutkitaan napeilla rahan kautta järjestyksessä---------------------------------------
         private void RahaX_Click(object sender, RoutedEventArgs e)
         {
             foreach (var item in items)
@@ -161,11 +173,14 @@ namespace Rahatraiteille
 
             ICname.ItemsSource = null;
             ICname.ItemsSource = items;
-        }
+        }        //------------------------------------------------------------------------------
+
+        //tekstilaatikon muuttuessa lable:t katoaa-----------------------------------------------
         private void Nimi_TextChanged(object sender, EventArgs e)
         {
             if (Nimi.Text != "") nimiPlaceholder.Visibility = Visibility.Hidden;
             else nimiPlaceholder.Visibility = Visibility.Visible;
         }
+        //-----------------------------------------------------------------------------------------
     }
 }
