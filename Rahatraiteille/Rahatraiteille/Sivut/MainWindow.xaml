@@ -35,30 +35,30 @@
                 </Style>
             </TabControl.Resources>
 
-            <TabItem x:Name="Tab1" Width="145" HorizontalAlignment="Left" >
+            <TabItem x:Name="Tab1" Width="145" HorizontalAlignment="Left" Margin="0,0,0,0" >
                 <TabItem.Header>
                     <Image Width="50" Height="56" Source="/Kuvat/RahatRaiteille.png"></Image>
                 </TabItem.Header>
                 <Frame x:Name="F1" Margin="0,0,-1,0" Height="557" Background="#D2D9BC"></Frame>
             </TabItem>
-            <TabItem x:Name="Tab2" Foreground="White" FontSize="18" Header="Lisää Kirjaus" Width="149" HorizontalAlignment="Left">
+            <TabItem x:Name="Tab2" Foreground="White" FontSize="18" Header="Lisää Kirjaus" Width="149" HorizontalAlignment="Left" Margin="-60,0,0,0" >
                 <Frame x:Name="F2" Margin="0,0,-1,0" Height="557" Background="#D2D9BC"></Frame>
             </TabItem>
-            <TabItem x:Name="Tab3" Foreground="White" FontSize="18" Header="Lisää Kategoria" Width="149" HorizontalAlignment="Left">
+            <TabItem x:Name="Tab3" Foreground="White" FontSize="18" Header="Lisää Kategoria" Width="149" HorizontalAlignment="Left" Margin="-115,0,0,0" >
                 <Frame x:Name="F3" Margin="0,0,-1,0" Height="557" Background="#D2D9BC"></Frame>
             </TabItem>
-            
-            <TabItem x:Name="Tab4" Foreground="White" FontSize="18" Header="Tarkastele" Width="149" HorizontalAlignment="Left">
+
+            <TabItem x:Name="Tab4" Foreground="White" FontSize="18" Header="Tarkastele" Width="149" HorizontalAlignment="Left" Margin="-170,0,0,0" >
                 <Frame x:Name="F4" Margin="0,0,-1,0" Height="557" Background="#D2D9BC"></Frame>
             </TabItem>
             
         </TabControl>
 
 
-        <Popup Margin="10,10,0,13" AllowsTransparency="True" Name="Popup1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="250" Height="100" PlacementTarget="{Binding ElementName=TimerLable}">
-            <Border ClipToBounds="True" CornerRadius="6" Name="Border" Width="250" Height="100"  Background="Beige">
+        <Popup Margin="10,10,0,13" AllowsTransparency="True" Name="Popup1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="250" Height="125" PlacementTarget="{Binding ElementName=TimerLable}">
+            <Border ClipToBounds="True" CornerRadius="6" Name="Border" Width="250" Height="125"  Background="Beige">
                 <Canvas Background="Transparent">
-                    <TextBlock Name="text" Width="250" Height="100" TextWrapping="Wrap" Text="" TextAlignment="Center" FontSize="15" FontFamily="Bahnschrift Light"></TextBlock>
+                    <TextBlock Name="text" Width="235" Height="105" TextWrapping="Wrap" Text="" TextAlignment="Center" FontSize="15" FontFamily="Bahnschrift Light"></TextBlock>
                 </Canvas>
             </Border>
         </Popup>
