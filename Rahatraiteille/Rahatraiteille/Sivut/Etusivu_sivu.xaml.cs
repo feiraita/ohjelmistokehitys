@@ -6,6 +6,7 @@ using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using Rahatraiteille.Luokat;
 using LiveCharts.Configurations;
+using System.Transactions;
 
 namespace Rahatraiteille.Sivut
 {
@@ -15,6 +16,7 @@ namespace Rahatraiteille.Sivut
         private double _trend;
 
         List<Kategoria> kategorialista = new List<Kategoria>();
+        List<Kirjaus> kirjauslista = new List<Kirjaus>();
 
         public Etusivu_sivu()
         {
@@ -52,6 +54,9 @@ namespace Rahatraiteille.Sivut
                 {
                     Thread.Sleep(2000);
                     int count = Tallentaja_kategoria.LataaKategoriat().Count;
+
+                    double sumOfEuro = kirjauslista.Sum(kirjauslista => kirjauslista.euro);
+
                     _trend = (count);
                     Application.Current.Dispatcher.Invoke(() =>
                     {
@@ -60,18 +65,20 @@ namespace Rahatraiteille.Sivut
                         SetLecture();
                         ListaMäärä.Text = count.ToString();
                         Lista.Text = count.ToString();
+                        Summa.Text = sumOfEuro.ToString();
 
-                        Aika2.Text = DateTime.Now.ToString("yyyy - MM - dd");
+                        Aika2.Text = DateTime.Now.ToString("dd - MM - yyyy");
                     });
                 }
             });
             DataContext = this;
 
             kategorialista = Tallentaja_kategoria.LataaKategoriat();
+            kirjauslista = Tallentaja_kirjaus.LataaKirjaukset();
 
-           /* Mapper = Mappers.Xy<City>()
-                .X((city, index) => index)
-                .Y(city => city.Population);*/
+            /* Mapper = Mappers.Xy<City>()
+                 .X((city, index) => index)
+                 .Y(city => city.Population);*/
         }
 
         class Data

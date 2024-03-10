@@ -103,7 +103,7 @@
             </lvc:CartesianChart>
             
             <StackPanel Grid.Row="3" VerticalAlignment="Center" Margin="25,0,25,0" Grid.ColumnSpan="3">
-                <TextBlock Opacity=".4" FontSize="13">Yhteenveto <LineBreak />Rahan käyttö</TextBlock>
+                <TextBlock Opacity=".4" FontSize="13">Rahaa käytetty</TextBlock>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Foreground="#303030" FontSize="40" x:Name="Summa" />
                     <TextBlock Foreground="#303030" FontSize="18" VerticalAlignment="Bottom" Margin="8, 6">€</TextBlock>
@@ -160,10 +160,9 @@
             </lvc:CartesianChart>
             <TextBlock x:Name="ListaMäärä" Margin="0,30,0,55" Grid.Row="1" Text="0" TextAlignment="Center" Grid.RowSpan="2" FontSize="30"></TextBlock>
             <StackPanel Grid.Row="3" VerticalAlignment="Center" Margin="25, 0">
-                <TextBlock Opacity=".4" FontSize="13">Listojen <LineBreak /> Määrä</TextBlock>
+                <TextBlock Opacity=".4" FontSize="13">Kategorioiden määrä</TextBlock>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Foreground="#303030" FontSize="40" x:Name="Lista"/>
-                    <TextBlock Foreground="#303030" FontSize="18" VerticalAlignment="Bottom" Margin="8, 6">Listoja</TextBlock>
                 </StackPanel>
             </StackPanel>
         </Grid>
