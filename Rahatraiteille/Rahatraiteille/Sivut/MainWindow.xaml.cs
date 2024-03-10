@@ -87,7 +87,7 @@ namespace Rahatraiteille
         {
             increment++;
 
-            if (increment == 5)
+            if (increment == 12)
             {
                 int index = rnd.Next(_vinkit.Count);
                 popupTextBlock.Text = _vinkit[index];
