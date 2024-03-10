@@ -6,6 +6,7 @@ using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using Rahatraiteille.Luokat;
 using LiveCharts.Configurations;
+using System.Transactions;
 using System.Windows.Media;
 using System.Collections.ObjectModel;
 
@@ -17,7 +18,6 @@ namespace Rahatraiteille.Sivut
         private double _trend;
 
         List<Kategoria> kategorialista = new List<Kategoria>();
-
         List<Kirjaus> kirjauslista = new List<Kirjaus>();
 
         //public SeriesCollection Yhteenveto { get; set; } = new SeriesCollection();
@@ -65,6 +65,8 @@ namespace Rahatraiteille.Sivut
 
                     Thread.Sleep(2000);
                     int count = Tallentaja_kategoria.LataaKategoriat().Count;
+                    double summa = kirjauslista.Sum(kirjauslista => kirjauslista.euro);
+
                     _trend = (count);
 
                     //_yhteenveto = double.Join(", ", yhteenvetoLista);
@@ -93,26 +95,11 @@ namespace Rahatraiteille.Sivut
             DataContext = this;
 
             kategorialista = Tallentaja_kategoria.LataaKategoriat();
-
             kirjauslista = Tallentaja_kirjaus.LataaKirjaukset();
 
-            //UpdateYhteenveto();
 
         }
-        /*private void UpdateYhteenveto()
-        {
-            // Update the Yhteenveto values
-            Yhteenveto.Clear(); // Clear existing data
 
-            Yhteenveto[0].Values.Add(new ObservableValue(2));
-
-            //Yhteenveto.Add(10);
-            //Yhteenveto.Add(20);
-            //Yhteenveto.Add(30);
-
-            // Notify the UI that the property has changed
-            OnPropertyChanged(nameof(Yhteenveto));
-        }*/
         public SeriesCollection LastHourSeries { get; set; }
 
         public double LastLecture

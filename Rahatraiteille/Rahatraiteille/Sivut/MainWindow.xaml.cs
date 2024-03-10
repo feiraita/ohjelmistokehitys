@@ -26,6 +26,7 @@ namespace Rahatraiteille
         DispatcherTimer dt = new DispatcherTimer();
         List<string> _vinkit = new List<string>();
 
+        static Random rnd = new Random();
         public MainWindow()
         {
             InitializeComponent();
@@ -64,8 +65,6 @@ namespace Rahatraiteille
             dt.Interval = TimeSpan.FromSeconds(1);
             dt.Tick += dtTicker;
             dt.Start();
-
-            Tarkastele_sivu.PaivitaLista();
         }
         private int increment = 0;
 
@@ -85,12 +84,16 @@ namespace Rahatraiteille
         }
         private async void dtTicker(object sender, EventArgs e)
         {
+            
+            var vinkit = new List<string> { "one", "two", "three", "four" };
             increment++;
 
             TimerLable.Content = increment.ToString();
 
             if (increment == 7)
             {
+                int index = rnd.Next(vinkit.Count);
+                popupTextBlock.Text = vinkit[index];
                 Popup1.IsOpen = true;
                 increment = 0;
             }

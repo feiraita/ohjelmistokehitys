@@ -58,11 +58,18 @@
         <Popup Margin="10,10,0,13" AllowsTransparency="True" Name="Popup1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="250" Height="125" PlacementTarget="{Binding ElementName=TimerLable}">
             <Border ClipToBounds="True" CornerRadius="6" Name="Border" Width="250" Height="125"  Background="Beige">
                 <Canvas Background="Transparent">
+
                     <TextBlock Name="text" Width="235" Height="105" TextWrapping="Wrap" Text="" TextAlignment="Center" FontSize="15" FontFamily="Bahnschrift Light"></TextBlock>
                 </Canvas>
             </Border>
         </Popup>
         <Label x:Name="TimerLable" Content="0" HorizontalAlignment="Left" Margin="505,350,0,0" VerticalAlignment="Top" Height="77" Width="107" FontSize="20"/>
+
+      <TextBlock x:Name="popupTextBlock" Width="150" Height="100" TextWrapping="Wrap" TextAlignment="Center" FontSize="20" FontFamily="Bahnschrift Light"></TextBlock>
+                </Canvas>
+            </Border>
+        </Popup>
+        <Label x:Name="TimerLable" Content="0" HorizontalAlignment="Left" Margin="10,353,0,0" VerticalAlignment="Top" Height="77" Width="107" FontSize="20"/>
 
     </Grid>
 </Window>
